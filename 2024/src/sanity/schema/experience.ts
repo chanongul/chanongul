@@ -51,6 +51,30 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "projects",
+      title: "Projects",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: [{ type: "project" }],
+          options: {
+            filter: ({ document }) => {
+              const selected = (document.projects as { _ref: string }[])
+                .map((s) => s._ref)
+                .filter(Boolean);
+              return {
+                filter: "!(_id in $selected)",
+                params: {
+                  selected,
+                },
+              };
+            },
+          },
+        }),
+      ],
+    }),
+    defineField({
       name: "skills",
       title: "Skills",
       type: "array",
