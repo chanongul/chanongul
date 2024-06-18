@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import "@/app/global.css";
+import { ReactNode } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSerifDisplay = DM_Serif_Display({
@@ -12,16 +13,21 @@ const dmSerifDisplay = DM_Serif_Display({
 export const metadata: Metadata = {
   title: "Chanon | Portfolio 2024",
   description: "2024 Portfolio of Chanon Gulgattimas",
+  icons: {
+    icon: "/icons/icon.svg",
+  },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${dmSerifDisplay.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
