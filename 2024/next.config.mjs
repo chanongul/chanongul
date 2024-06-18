@@ -3,9 +3,9 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/((?!portfolio$).*)",
-        destination: "/portfolio",
-        permanent: true,
+        source: "/((?!$).*)",
+        destination: "/",
+        permanent: false,
       },
     ];
   },
