@@ -2,32 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  transition:
+    color 300ms,
+    background-color 300ms;
+  @apply bg-white dark:bg-charcoal;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-size: 16px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    color 300ms,
+    background-color 300ms,
+    opacity 400ms;
+  @apply bg-neutral-200 text-black dark:bg-black dark:text-white rounded-xl md:rounded-2xl;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+#lg-theme-toggler::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+
+  mask: radial-gradient(
+    at top right,
+    black 30%,
+    #000000ee 60%,
+    transparent 70%
+  );
+  backdrop-filter: blur(20px);
+}
+
+#lg-theme-toggler:hover::after {
+  opacity: 1;
+}
+
+#sm-theme-toggler::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+
+  mask: radial-gradient(circle, black 30%, #000000ee 50%, transparent 70%);
+  backdrop-filter: blur(20px);
+}
+
+#sm-theme-toggler.active::after {
+  opacity: 1;
+}
+
+@keyframes loading-indicator-0 {
+  from {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes loading-indicator-1 {
+  from {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes loading-indicator-2 {
+  from {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes loading-indicator-3 {
+  from {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0);
   }
 }

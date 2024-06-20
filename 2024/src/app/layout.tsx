@@ -1,7 +1,7 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import "@/app/global.css";
-import { ReactNode } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSerifDisplay = DM_Serif_Display({
