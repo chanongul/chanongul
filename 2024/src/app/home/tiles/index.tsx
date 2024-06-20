@@ -11,7 +11,7 @@ export default function HomePageTiles({
   currentSection: curSect,
 }: HomePageTilesProps) {
   return (
-    <div className="relative w-full h-dvh grid grid-cols-6 md:grid-cols-4 grid-rows-12 md:grid-flow-col p-3 xl:p-4 gap-3 xl:gap-4">
+    <div className="relative w-full h-dvh grid grid-cols-6 md:grid-cols-4 md:grid-rows-12 md:grid-flow-col p-3 xl:p-4 gap-3 xl:gap-4">
       <Education currentSection={curSect} />
 
       <Experience currentSection={curSect} />

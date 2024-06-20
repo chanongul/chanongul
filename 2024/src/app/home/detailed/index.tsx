@@ -29,7 +29,7 @@ export default function DetailedHomePage({
   return (
     <div
       ref={gridContainerRef}
-      className={`absolute top-0 left-0 w-full h-dvh grid grid-cols-6 md:grid-cols-4  grid-rows-12 p-3 xl:p-4 ${curSect ? "!gap-0 grid-rows-1" : "gap-3 xl:gap-4 md:grid-flow-col"}`}
+      className={`absolute top-0 left-0 w-full h-dvh grid grid-cols-6 md:grid-cols-4  md:grid-rows-12 p-3 xl:p-4 ${curSect ? "!gap-0 grid-rows-1" : "gap-3 xl:gap-4 md:grid-flow-col"}`}
     >
       <Education currentSection={[curSect, setCurSect]} />
 
