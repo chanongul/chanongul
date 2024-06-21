@@ -10,6 +10,9 @@ import {
   skillTypesQuery,
 } from "@/sanity/lib/query";
 
+export const runtime = "edge";
+export const dynamicParams = false;
+
 export default async function Home() {
   const profileData = await sanityFetch<ProfileFetchProps>({
     query: profileQuery,
