@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { DM_Serif_Display, Inter } from "next/font/google";
+import ThemeProvider from "@/app/theme-provider";
 import "@/app/global.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,9 +25,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} ${dmSerifDisplay.variable}`}>
-        {children}
+        <ThemeProvider>
+          <main className="min-h-dvh w-full">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

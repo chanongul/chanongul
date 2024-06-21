@@ -5,7 +5,6 @@ import Profile from "@/app/home/tiles/profile";
 import Contact from "@/app/home/tiles/contact";
 import Skills from "@/app/home/tiles/skills";
 import Projects from "@/app/home/tiles/projects";
-import TilesBackground from "@/app/home/tiles/background";
 
 export default function HomePageTiles({
   currentSection: curSect,
@@ -25,8 +24,6 @@ export default function HomePageTiles({
       <Skills currentSection={curSect} />
 
       <Projects currentSection={curSect} />
-
-      <TilesBackground currentSection={curSect} />
     </div>
   );
 }

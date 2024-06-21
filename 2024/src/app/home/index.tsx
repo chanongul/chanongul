@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <div className="relative w-full h-dvh">
-      {isPending && <Loading />}
+      {/* {isPending && <Loading />} */}
 
       <HomePageTiles currentSection={curSect} />
 

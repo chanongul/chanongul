@@ -10,12 +10,13 @@ import Contact from "@/app/home/detailed/contact";
 import Skills from "@/app/home/detailed/skills";
 import Projects from "@/app/home/detailed/projects";
 import Navigator from "@/app/home/detailed/nav";
+import TileBackground from "@/app/home/detailed/background";
 
 export default function DetailedHomePage({
   currentSection,
 }: DetailedHomePageProps) {
   const gridContainerRef = useRef<HTMLDivElement>(null);
-  const [curSect, setCurSect] = currentSection;
+  const [curSect, _] = currentSection;
 
   useEffect(() => {
     if (gridContainerRef.current) {
@@ -31,21 +32,23 @@ export default function DetailedHomePage({
       ref={gridContainerRef}
       className={`absolute top-0 left-0 w-full h-dvh grid grid-cols-6 md:grid-cols-4  md:grid-rows-12 p-3 xl:p-4 ${curSect ? "!gap-0 grid-rows-1" : "gap-3 xl:gap-4 md:grid-flow-col"}`}
     >
-      <Education currentSection={[curSect, setCurSect]} />
+      <TileBackground currentSection={currentSection} />
 
-      <Experience currentSection={[curSect, setCurSect]} />
+      <Education currentSection={currentSection} />
 
-      <Statement currentSection={[curSect, setCurSect]} />
+      <Experience currentSection={currentSection} />
 
-      <Profile currentSection={[curSect, setCurSect]} />
+      <Statement currentSection={currentSection} />
 
-      <Contact currentSection={[curSect, setCurSect]} />
+      <Profile currentSection={currentSection} />
 
-      <Skills currentSection={[curSect, setCurSect]} />
+      <Contact currentSection={currentSection} />
 
-      <Projects currentSection={[curSect, setCurSect]} />
+      <Skills currentSection={currentSection} />
 
-      <Navigator currentSection={[curSect, setCurSect]} />
+      <Projects currentSection={currentSection} />
+
+      <Navigator currentSection={currentSection} />
     </div>
   );
 }
