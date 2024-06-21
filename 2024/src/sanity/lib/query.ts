@@ -44,6 +44,10 @@ export const experienceQuery = groq`*[_type=="experience"]{
     "images":images[].asset->url,
     from,
     to,
+    name,
+    "type":type[]->name,
+    "description":desc,
+    "contribution":contrib,
     "links":links[]->{
       name,
       url,
@@ -75,12 +79,16 @@ export const projectsQuery = groq`*[_type=="project"]{
   "images":images[].asset->url,
   from,
   to,
+  name,
+  "type":type[]->name,
+  "description":desc,
+  "contribution":contrib,
   "links":links[]->{
-    "tag":name,
+    name,
     url,
   },
   "src":src[]->{
-    "tag":name,
+    name,
     url,
   }
 }`;

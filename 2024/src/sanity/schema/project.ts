@@ -124,6 +124,29 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "type",
+      title: "Type",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "projType" }],
+          options: {
+            filter: ({ document }) => {
+              const selected = (document.type as { _ref: string }[])
+                .map((s) => s._ref)
+                .filter(Boolean);
+              return {
+                filter: "!(_id in $selected)",
+                params: { selected },
+              };
+            },
+          },
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    }),
+    defineField({
       name: "desc",
       title: "Description",
       type: "text",

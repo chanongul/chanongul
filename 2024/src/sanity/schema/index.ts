@@ -9,6 +9,7 @@ import project from "./project";
 import contact from "./contact";
 import projLink from "./proj-link";
 import projSrc from "./proj-src";
+import projType from "./proj-type";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -21,6 +22,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     project,
     projLink,
     projSrc,
+    projType,
     contact,
   ],
 };
