@@ -39,7 +39,6 @@ export default function ThemeToggler() {
     <>
       <div
         id="lg-theme-toggler"
-        onClick={() => setActive(true)}
         className={`hidden md:block z-10 fixed top-0 right-0 md:hover:translate-x-0 md:hover:translate-y-0 size-[6em] text-orange-500 transition-all duration-500 ${isHidden ? "translate-x-full -translate-y-full" : "translate-x-1/4 -translate-y-1/4"}`}
       >
         <button
@@ -76,7 +75,7 @@ export default function ThemeToggler() {
           isHidden
             ? "translate-x-full translate-y-full"
             : isActive
-              ? "active !translate-x-10 !translate-y-10"
+              ? "active translate-x-10 translate-y-10"
               : "translate-x-1/2 translate-y-1/2"
         }`}
       >
