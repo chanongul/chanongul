@@ -74,30 +74,46 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "link",
-      title: "Link",
+      name: "links",
+      title: "Links",
       type: "array",
       of: [
         defineArrayMember({
-          type: "url",
-          validation: (Rule) =>
-            Rule.uri({
-              scheme: ["http", "https"],
-            }),
+          type: "reference",
+          to: [{ type: "projLink" }],
+          options: {
+            filter: ({ document }) => {
+              const selected = (document.links as { _ref: string }[])
+                .map((l) => l._ref)
+                .filter(Boolean);
+              return {
+                filter: "!(_id in $selected)",
+                params: { selected },
+              };
+            },
+          },
         }),
       ],
     }),
     defineField({
       name: "src",
-      title: "Source Code",
+      title: "Source Codes",
       type: "array",
       of: [
         defineArrayMember({
-          type: "url",
-          validation: (Rule) =>
-            Rule.uri({
-              scheme: ["http", "https"],
-            }),
+          type: "reference",
+          to: [{ type: "projSrc" }],
+          options: {
+            filter: ({ document }) => {
+              const selected = (document.src as { _ref: string }[])
+                .map((s) => s._ref)
+                .filter(Boolean);
+              return {
+                filter: "!(_id in $selected)",
+                params: { selected },
+              };
+            },
+          },
         }),
       ],
     }),

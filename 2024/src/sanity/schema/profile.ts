@@ -15,8 +15,8 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "st8ment",
-      title: "Description",
+      name: "stmt",
+      title: "Personal Statement",
       type: "text",
       validation: (Rule) => Rule.required(),
     }),

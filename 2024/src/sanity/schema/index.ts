@@ -7,6 +7,8 @@ import skillSubtype from "./skill-subtype";
 import skill from "./skill";
 import project from "./project";
 import contact from "./contact";
+import projLink from "./proj-link";
+import projSrc from "./proj-src";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,6 +19,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     skillType,
     skillSubtype,
     project,
+    projLink,
+    projSrc,
     contact,
   ],
 };
