@@ -21,7 +21,7 @@ export default function ThemeToggler() {
     if (isActive) {
       setTimeout(() => {
         setActive(false);
-      }, 1200);
+      }, 1500);
     }
   }, [isActive]);
 
@@ -72,12 +72,12 @@ export default function ThemeToggler() {
       <div
         id={"sm-theme-toggler"}
         onClick={() => setActive(true)}
-        className={`md:hidden z-10 fixed top-0 right-0 size-[8em] text-orange-500 transition-all duration-500 ${
+        className={`md:hidden z-10 fixed bottom-0 right-0 size-[8em] text-orange-500 transition-all duration-500 ${
           isHidden
-            ? "translate-x-full -translate-y-full"
+            ? "translate-x-full translate-y-full"
             : isActive
-              ? "active !translate-x-10 !-translate-y-10"
-              : "translate-x-1/2 -translate-y-1/2"
+              ? "active !translate-x-10 !translate-y-10"
+              : "translate-x-1/2 translate-y-1/2"
         }`}
       >
         <button
