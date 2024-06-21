@@ -6,12 +6,12 @@ export default function DetailedSkills({
 
   return (
     <section
-      className={`order-6 md:order-none ${
+      className={`order-4 md:order-none ${
         curSect
           ? curSect === sectName
             ? "opacity-100 col-span-full row-span-full"
             : "opacity-0 w-0 h-0 overflow-hidden"
-          : "opacity-0 row-span-2 md:row-span-7 col-span-6 md:col-span-1 cursor-pointer delay-300"
+          : "opacity-0 row-start-10 md:row-start-auto row-span-2 md:row-span-7 col-span-6 md:col-span-1 cursor-pointer delay-300"
       }`}
       onClick={() => setCurSect(sectName)}
     >

@@ -14,9 +14,8 @@ const config: Config = {
       colors: {
         charcoal: "#131311",
       },
-      gridTemplateColumns: {
-        "1-4": "1fr 4fr",
-        "20": "repeat(20, minmax(0, 1fr))",
+      gridTemplateRows: {
+        "13": "repeat(13, minmax(0, 1fr))",
       },
       keyframes: {
         floating: {

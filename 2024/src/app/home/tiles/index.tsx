@@ -16,7 +16,7 @@ export default function HomePageTiles({
   projectsData,
 }: HomePageTilesProps) {
   return (
-    <div className="relative w-full h-dvh grid grid-cols-6 md:grid-cols-4 md:grid-rows-12 md:grid-flow-col p-3 xl:p-4 gap-3 xl:gap-4">
+    <div className="relative w-full h-dvh grid grid-cols-6 md:grid-cols-4 grid-rows-13 md:grid-rows-12 auto-rows-1fr md:grid-flow-col p-3 xl:p-4 gap-3 xl:gap-4">
       <Education currentSection={curSect} educationData={educationData} />
 
       <Experience currentSection={curSect} experienceData={experienceData} />
@@ -29,7 +29,7 @@ export default function HomePageTiles({
 
       <Skills currentSection={curSect} skillsData={skillsData} />
 
-      <Projects currentSection={curSect} />
+      <Projects currentSection={curSect} projectsData={projectsData} />
     </div>
   );
 }

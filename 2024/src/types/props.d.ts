@@ -89,8 +89,8 @@ declare global {
     };
   };
 
-  type URLWithTag = {
-    tag: string;
+  type URLWithName = {
+    name: string;
     url: string;
   };
 
@@ -103,8 +103,8 @@ declare global {
     contribution: string;
     from: string;
     to: string;
-    links: URLWithTag[];
-    src: URLWithTag[];
+    links: URLWithName[];
+    src: URLWithName[];
   }[];
 
   type ProfileTileProps = Pick<HomePageTilesProps, "currentSection"> &
@@ -129,7 +129,9 @@ declare global {
     skillsData: SkillsByType;
   };
 
-  type ProjectsTileProps = Pick<HomePageTilesProps, "currentSection">;
+  type ProjectsTileProps = Pick<HomePageTilesProps, "currentSection"> & {
+    projectsData: ProjectsFetchProps;
+  };
 
   type DetailedProfileProps = Pick<DetailedHomePageProps, "currentSection"> &
     ProfileFetchProps & { contactsData: ContactsFetchProps };
