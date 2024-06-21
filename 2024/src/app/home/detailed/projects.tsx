@@ -1,6 +1,6 @@
 export default function DetailedProjects({
   currentSection,
-}: DetailedHomePageProps) {
+}: DetailedProjectsProps) {
   const [curSect, setCurSect] = currentSection;
   const sectName = "proj";
 

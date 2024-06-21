@@ -1,6 +1,6 @@
 export default function DetailedProfile({
   currentSection,
-}: DetailedHomePageProps) {
+}: DetailedProfileProps) {
   const [curSect, setCurSect] = currentSection;
   const sectName = "prof";
 

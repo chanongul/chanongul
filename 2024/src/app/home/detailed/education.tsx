@@ -1,6 +1,6 @@
 export default function DetailedEducation({
   currentSection,
-}: DetailedHomePageProps) {
+}: DetailedEducationProps) {
   const [curSect, setCurSect] = currentSection;
   const sectName = "edu";
 

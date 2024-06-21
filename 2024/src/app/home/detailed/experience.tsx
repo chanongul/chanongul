@@ -1,6 +1,6 @@
 export default function DetailedExperience({
   currentSection,
-}: DetailedHomePageProps) {
+}: DetailedExperienceProps) {
   const [curSect, setCurSect] = currentSection;
   const sectName = "exp";
 

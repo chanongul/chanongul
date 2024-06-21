@@ -1,6 +1,6 @@
 export default function DetailedSkills({
   currentSection,
-}: DetailedHomePageProps) {
+}: DetailedSkillsProps) {
   const [curSect, setCurSect] = currentSection;
   const sectName = "skills";
 

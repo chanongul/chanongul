@@ -1,6 +1,6 @@
 import { IoClose } from "react-icons/io5";
 
-export default function Navigator({ currentSection }: DetailedHomePageProps) {
+export default function Navigator({ currentSection }: NavigatorProps) {
   const [curSect, setCurSect] = currentSection;
 
   return (
