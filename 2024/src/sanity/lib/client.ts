@@ -12,5 +12,5 @@ export async function sanityFetch<QueryResponse>({
   query,
   qParams = {},
 }: SanityFetchProps): Promise<QueryResponse> {
-  return client.fetch<QueryResponse>(query, qParams, { cache: "no-cache" });
+  return client.fetch<QueryResponse>(query, qParams);
 }
