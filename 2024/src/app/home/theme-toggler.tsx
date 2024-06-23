@@ -36,76 +36,43 @@ export default function ThemeToggler() {
   }
 
   return (
-    <>
-      <div
-        id="lg-theme-toggler"
-        className={`hidden md:block z-10 fixed top-0 right-0 md:hover:translate-x-0 md:hover:translate-y-0 size-[6em] text-orange-500 transition-all duration-500 ${isHidden ? "translate-x-full -translate-y-full" : "translate-x-1/4 -translate-y-1/4"}`}
+    <div
+      id={"theme-toggler"}
+      onClick={() => setActive(true)}
+      className={`fixed bottom-0 right-0 z-10 size-[10em] text-orange-500 transition-all duration-500 landscape:top-0 ${
+        isHidden
+          ? "translate-x-full translate-y-full"
+          : isActive
+            ? "translate-x-1/2 translate-y-1/2 hover:translate-x-10 hover:translate-y-10 hover:after:!opacity-100 touch:translate-x-10 touch:translate-y-10 touch:after:!opacity-100 touch:hover:after:!opacity-100 landscape:-translate-y-1/2 hover:landscape:-translate-y-10 touch:landscape:-translate-y-10"
+            : "translate-x-1/2 translate-y-1/2 hover:translate-x-10 hover:translate-y-10 hover:after:!opacity-100 touch:hover:translate-x-1/2 touch:hover:translate-y-1/2 touch:hover:after:!opacity-0 landscape:-translate-y-1/2 hover:landscape:-translate-y-10 touch:hover:landscape:-translate-y-1/2"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={onClick}
+        className="absolute bottom-1/2 left-1/2 z-10 size-1/4 -translate-x-1/2 translate-y-1/2"
       >
-        <button
-          type="button"
-          onClick={onClick}
-          className="size-1/3 z-10 absolute bottom-[55%] left-[55%]"
+        <svg
+          className="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          fill="currentColor"
+          viewBox="0 0 32 32"
         >
-          <svg
-            className="fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            width="100%"
-            height="100%"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-          >
-            <clipPath id="lg-theme-toggle-cutout">
-              <path
-                className={`${
-                  theme === "dark" ? "-translate-x-[15px]" : ""
-                } transition-all duration-300`}
-                d="M0-5h55v37h-55zm32 12a1 1 0 0025 0 1 1 0 00-25 0"
-              />
-            </clipPath>
-            <g clipPath="url(#lg-theme-toggle-cutout)">
-              <circle cx="16" cy="16" r="15" />
-            </g>
-          </svg>
-        </button>
-      </div>
-      <div
-        id={"sm-theme-toggler"}
-        onClick={() => setActive(true)}
-        className={`md:hidden z-10 fixed bottom-0 right-0 size-[8em] text-orange-500 transition-all duration-500 ${
-          isHidden
-            ? "translate-x-full translate-y-full"
-            : isActive
-              ? "active translate-x-10 translate-y-10"
-              : "translate-x-1/2 translate-y-1/2"
-        }`}
-      >
-        <button
-          type="button"
-          onClick={onClick}
-          className="size-1/4 z-10 absolute bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2"
-        >
-          <svg
-            className="fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            width="100%"
-            height="100%"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-          >
-            <clipPath id="sm-theme-toggle-cutout">
-              <path
-                className={`${
-                  theme === "dark" ? "-translate-x-[15px]" : ""
-                } transition-all duration-300`}
-                d="M0-5h55v37h-55zm32 12a1 1 0 0025 0 1 1 0 00-25 0"
-              />
-            </clipPath>
-            <g clipPath="url(#sm-theme-toggle-cutout)">
-              <circle cx="16" cy="16" r="15" />
-            </g>
-          </svg>
-        </button>
-      </div>
-    </>
+          <clipPath id="theme-toggle-cutout">
+            <path
+              className={`${
+                theme === "dark" ? "-translate-x-[15px]" : ""
+              } transition-all duration-300`}
+              d="M0-5h55v37h-55zm32 12a1 1 0 0025 0 1 1 0 00-25 0"
+            />
+          </clipPath>
+          <g clipPath="url(#theme-toggle-cutout)">
+            <circle cx="16" cy="16" r="15" />
+          </g>
+        </svg>
+      </button>
+    </div>
   );
 }
