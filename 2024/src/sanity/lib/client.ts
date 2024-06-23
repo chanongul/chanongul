@@ -12,5 +12,7 @@ export async function sanityFetch<QueryResponse>({
   query,
   qParams = {},
 }: SanityFetchProps): Promise<QueryResponse> {
-  return client.fetch<QueryResponse>(query, qParams);
+  return client.fetch<QueryResponse>(query, qParams, {
+    next: { revalidate: 1800 },
+  });
 }
