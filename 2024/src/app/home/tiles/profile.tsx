@@ -10,7 +10,7 @@ export default function ProfileTile({
     <section
       className={`order-1 col-span-4 row-span-4 md:order-none md:col-span-2 md:row-span-6 landscape:order-none landscape:col-span-2 landscape:row-span-6 ${curSect ? "opacity-0" : "opacity-100"}`}
     >
-      <div className="grid h-full w-full grid-cols-1 grid-rows-[auto_1fr] place-content-center justify-items-center gap-x-[10%] gap-y-[5%] p-[10%] sm:p-[5%] md:gap-x-[5%] md:p-[15%] landscape:grid-cols-[5fr_4fr] landscape:grid-rows-none landscape:justify-items-start landscape:p-[12%] md:landscape:p-[5%]">
+      <div className="grid h-full w-full grid-cols-1 grid-rows-[auto_1fr] place-content-center justify-items-center gap-x-[10%] gap-y-[5%] p-[10%] sm:!p-[5%] md:gap-x-[5%] md:!p-[15%] xs:p-[5%] landscape:grid-cols-[5fr_4fr] landscape:grid-rows-none landscape:justify-items-start landscape:p-[12%] md:landscape:p-[5%]">
         <ReactSVG
           src={photo}
           loading={LoadingIndicator}
