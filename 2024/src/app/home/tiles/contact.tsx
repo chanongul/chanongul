@@ -3,7 +3,7 @@ export default function ContactTile({
 }: ContactTileProps) {
   return (
     <section
-      className={`order-2 md:order-none row-span-4 md:row-span-3 col-span-2 ${curSect ? "opacity-0" : "opacity-100"}`}
+      className={`order-2 col-span-2 row-span-4 md:order-none md:row-span-3 landscape:order-none landscape:row-span-3 ${curSect ? "opacity-0" : "opacity-100"}`}
     >
       contact
     </section>

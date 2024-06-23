@@ -3,7 +3,7 @@ export default function ExperienceTile({
 }: ExperienceTileProps) {
   return (
     <section
-      className={`order-5 md:order-none row-span-3 md:row-span-6 col-span-3 md:col-span-1 ${curSect ? "opacity-0" : "opacity-100"}`}
+      className={`order-5 col-span-3 row-span-3 md:order-none md:col-span-1 md:row-span-6 landscape:order-none landscape:col-span-1 landscape:row-span-6 ${curSect ? "opacity-0" : "opacity-100"}`}
     >
       experience
     </section>

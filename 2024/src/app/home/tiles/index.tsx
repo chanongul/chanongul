@@ -16,14 +16,18 @@ export default function HomePageTiles({
   projectsData,
 }: HomePageTilesProps) {
   return (
-    <div className="relative w-full h-dvh grid grid-cols-6 md:grid-cols-4 grid-rows-13 md:grid-rows-12 auto-rows-1fr md:grid-flow-col p-3 xl:p-4 gap-3 xl:gap-4">
+    <div className="auto-rows-1fr relative grid h-dvh w-full grid-cols-6 grid-rows-13 gap-3 p-3 text-sm md:grid-flow-col md:grid-cols-4 md:grid-rows-12 md:text-base xl:gap-4 xl:p-4 xl:text-xl landscape:grid-flow-col landscape:grid-cols-4 landscape:grid-rows-12">
       <Education currentSection={curSect} educationData={educationData} />
 
       <Experience currentSection={curSect} experienceData={experienceData} />
 
       <Statement currentSection={curSect} statement={profileData.statement} />
 
-      <Profile currentSection={curSect} photo={profileData.photo} />
+      <Profile
+        currentSection={curSect}
+        photo={profileData.photo}
+        statement={profileData.statement}
+      />
 
       <Contact currentSection={curSect} contactsData={contactsData} />
 

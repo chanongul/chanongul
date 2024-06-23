@@ -9,7 +9,7 @@ export default function HomePage(props: HomePageProps) {
   const [curSect, setCurSect] = useState<string | null>(null);
 
   return (
-    <div className="relative w-full h-dvh">
+    <div className="relative h-dvh w-full">
       <HomePageTiles {...props} currentSection={curSect} />
 
       <DetailedHomePage {...props} currentSection={[curSect, setCurSect]} />

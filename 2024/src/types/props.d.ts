@@ -108,7 +108,7 @@ declare global {
   }[];
 
   type ProfileTileProps = Pick<HomePageTilesProps, "currentSection"> &
-    Pick<ProfileFetchProps, "photo">;
+    ProfileFetchProps;
 
   type StatementTileProps = Pick<HomePageTilesProps, "currentSection"> &
     Pick<ProfileFetchProps, "statement">;

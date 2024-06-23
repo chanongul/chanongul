@@ -25,7 +25,7 @@ section {
     color 300ms,
     background-color 300ms,
     opacity 400ms;
-  @apply bg-neutral-200 text-black dark:bg-black dark:text-white rounded-xl md:rounded-2xl;
+  @apply rounded-xl bg-neutral-200 text-black md:rounded-2xl landscape:rounded-2xl dark:bg-black dark:text-white;
 }
 
 @layer utilities {
@@ -34,27 +34,7 @@ section {
   }
 }
 
-#lg-theme-toggler::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 300ms;
-
-  mask: radial-gradient(
-    at top right,
-    black 30%,
-    #000000ee 60%,
-    transparent 70%
-  );
-  backdrop-filter: blur(20px);
-}
-
-#lg-theme-toggler:hover::after {
-  opacity: 1;
-}
-
-#sm-theme-toggler::after {
+#theme-toggler::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -65,49 +45,15 @@ section {
   backdrop-filter: blur(20px);
 }
 
-#sm-theme-toggler.active::after {
-  opacity: 1;
-}
-
-@keyframes loading-indicator-0 {
+@keyframes loading-indicator {
   from {
     transform: translateY(0);
   }
   20% {
-    transform: translateY(2rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes loading-indicator-1 {
-  from {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(2rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes loading-indicator-2 {
-  from {
-    transform: translateY(0);
-  }
-  60% {
-    transform: translateY(2rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes loading-indicator-3 {
-  from {
-    transform: translateY(0);
+    transform: translateY(0.75em);
   }
   80% {
-    transform: translateY(2rem);
+    transform: translateY(-0.75em);
   }
   to {
     transform: translateY(0);

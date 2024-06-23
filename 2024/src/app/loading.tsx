@@ -2,8 +2,10 @@ import LoadingIndicator from "@/app/components/loading-indicator";
 
 export default function Loading() {
   return (
-    <div className="fixed top-0 left-0 z-[100] h-dvh w-full bg-orange-500 flex items-center justify-center [&_span]:!bg-white">
-      <LoadingIndicator />
+    <div className="fixed left-0 top-0 z-[100] flex h-dvh w-full items-center justify-center bg-orange-500 [&_span]:!bg-white">
+      <div className="h-16 w-fit text-white 2xl:h-24">
+        <LoadingIndicator />
+      </div>
     </div>
   );
 }

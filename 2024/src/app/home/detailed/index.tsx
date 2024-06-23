@@ -30,6 +30,8 @@ export default function DetailedHomePage({
         duration: 300,
       });
     }
+
+    console.log(skillsData);
   }, []);
 
   return (

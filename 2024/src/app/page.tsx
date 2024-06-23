@@ -35,7 +35,29 @@ export default async function Home() {
   const projectsData = await sanityFetch<ProjectsFetchProps>({
     query: projectsQuery,
   });
-  const skills: SkillsByType = {};
+  const skills: SkillsByType = skillTypesData.reduce(
+    (acc, skillType) => ({
+      ...acc,
+      [skillType.name]: skillType.subtypes.reduce(
+        (subAcc, subtype) => ({
+          ...subAcc,
+          [subtype]: skillsData
+            .filter(
+              (skill) =>
+                skill.type === skillType.name && skill.subtype === subtype,
+            )
+            .map((skill) => ({
+              logo: skill.logo,
+              name: skill.name,
+              prof: skill.prof,
+            }))
+            .sort((a, b) => a.name.localeCompare(b.name)),
+        }),
+        {},
+      ),
+    }),
+    {},
+  );
 
   return (
     <HomePage
