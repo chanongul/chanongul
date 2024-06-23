@@ -6,12 +6,12 @@ export default function DetailedExperience({
 
   return (
     <section
-      className={`order-3 md:order-none ${
+      className={`order-3 md:order-none landscape:order-none ${
         curSect
           ? curSect === sectName
-            ? "opacity-100 col-span-full row-span-full"
-            : "opacity-0 w-0 h-0 overflow-hidden"
-          : "opacity-0 row-start-7 md:row-start-auto row-span-3 md:row-span-6 col-span-3 md:col-span-1 cursor-pointer delay-300"
+            ? "col-span-full row-span-full opacity-100"
+            : "h-0 w-0 overflow-hidden opacity-0"
+          : "col-span-3 row-span-3 row-start-7 cursor-pointer opacity-0 delay-300 md:col-span-1 md:row-span-6 md:row-start-auto landscape:col-span-1 landscape:row-span-6 landscape:row-start-auto"
       }`}
       onClick={() => setCurSect(sectName)}
     >

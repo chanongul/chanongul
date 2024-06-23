@@ -30,14 +30,12 @@ export default function DetailedHomePage({
         duration: 300,
       });
     }
-
-    console.log(skillsData);
   }, []);
 
   return (
     <div
       ref={gridContainerRef}
-      className={`absolute top-0 left-0 w-full h-dvh grid grid-cols-6 md:grid-cols-4 grid-rows-13 md:grid-rows-12 p-3 xl:p-4 ${curSect ? "!gap-0 grid-rows-1" : "gap-3 xl:gap-4 md:grid-flow-col"}`}
+      className={`absolute left-0 top-0 grid h-dvh w-full grid-cols-6 grid-rows-13 p-3 md:grid-cols-4 md:grid-rows-12 xl:p-4 landscape:grid-cols-4 landscape:grid-rows-12 ${curSect ? "grid-rows-1 !gap-0" : "gap-3 md:grid-flow-col xl:gap-4 landscape:grid-flow-col"}`}
     >
       <TileBackground currentSection={currentSection[0]} />
 
