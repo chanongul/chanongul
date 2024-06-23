@@ -21,7 +21,7 @@ declare global {
     contactsData: ContactsFetchProps;
     educationData: EducationFetchProps;
     experienceData: ExperienceFetchProps;
-    skillsData: SkillsByType;
+    skillsData: any;
     projectsData: ProjectsFetchProps;
   };
 
@@ -75,7 +75,7 @@ declare global {
   type Skill = {
     logo: string;
     name: string;
-    prof: string;
+    prof: number;
   };
 
   type SkillTypesFetchProps = {
@@ -84,9 +84,11 @@ declare global {
   }[];
 
   type SkillsByType = {
-    [type: string]: {
-      [subtype: string]: Skill[];
-    };
+    [type: string]:
+      | {
+          [subtype: string]: Skill[];
+        }
+      | Skill[];
   };
 
   type URLWithName = {

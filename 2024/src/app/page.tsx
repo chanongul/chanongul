@@ -53,7 +53,14 @@ export default async function Home() {
             }))
             .sort((a, b) => a.name.localeCompare(b.name)),
         }),
-        {},
+        skillsData
+          .filter((skill) => skill.type === skillType.name && !skill.subtype)
+          .map((skill) => ({
+            logo: skill.logo,
+            name: skill.name,
+            prof: skill.prof,
+          }))
+          .sort((a, b) => a.name.localeCompare(b.name)),
       ),
     }),
     {},
