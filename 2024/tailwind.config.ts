@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: "selector",
@@ -9,7 +10,9 @@ const config: Config = {
     },
     extend: {
       screens: {
-        xs: "30px",
+        xs: "375px",
+        touch: { raw: "(hover: none)" },
+        "no-touch": { raw: "(hover: hover) and (pointer: fine)" },
       },
       colors: {
         charcoal: "#131311",
@@ -27,7 +30,25 @@ const config: Config = {
       animation: {
         floating: "floating 3s ease-in-out infinite",
       },
+      textShadow: {
+        sm: "0 1px 2px var(--tw-shadow-color)",
+        DEFAULT: "0 2px 4px var(--tw-shadow-color)",
+        lg: "0 8px 16px var(--tw-shadow-color)",
+        solid: "0.075em 0.025em var(--tw-shadow-color)",
+      },
     },
   },
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme("textShadow") },
+      );
+    }),
+  ],
 };
 export default config;
