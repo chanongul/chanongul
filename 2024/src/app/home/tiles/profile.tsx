@@ -15,7 +15,7 @@ export default function ProfileTile({
           src={photo}
           loading={LoadingIndicator}
           fallback={LoadingIndicator}
-          className="row-span-1 row-start-2 flex h-full items-center justify-end place-self-center overflow-hidden text-orange-500 transition-all duration-300 landscape:row-span-2 landscape:row-start-auto landscape:w-full [&>#loading-indicator]:h-10 [&>#loading-indicator]:text-black md:[&>#loading-indicator]:h-12 xl:[&>#loading-indicator]:h-16 dark:[&>#loading-indicator]:text-white [&>div]:h-full [&>div]:w-auto landscape:[&>div]:h-auto landscape:[&>div]:w-full"
+          className="row-span-1 row-start-2 flex h-full items-center justify-center place-self-center overflow-hidden text-orange-500 transition-all duration-300 2xl:overflow-visible landscape:row-span-2 landscape:row-start-auto landscape:w-full [&>#loading-indicator]:h-10 [&>#loading-indicator]:text-black md:[&>#loading-indicator]:h-12 xl:[&>#loading-indicator]:h-16 dark:[&>#loading-indicator]:text-white [&>div]:h-full [&>div]:w-auto landscape:[&>div]:h-auto landscape:[&>div]:w-full"
         />
         <h1 className="row-start-1 -ml-[1%] inline-flex flex-col text-center font-serif text-[3em] leading-none landscape:row-start-auto landscape:self-end landscape:text-start">
           <span className="text-[0.75em] sm:text-[1em] lg:text-[1.25em] sm:landscape:text-[0.7em] md:landscape:text-[1em]">
