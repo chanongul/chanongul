@@ -39,7 +39,7 @@ export default function ThemeToggler() {
     <div
       id={"theme-toggler"}
       onClick={() => setActive(true)}
-      className={`fixed bottom-0 right-0 z-10 size-[10em] text-orange-500 transition-all duration-500 landscape:top-0 ${
+      className={`fixed bottom-0 right-0 z-10 size-[8em] text-orange-500 transition-all duration-500 lg:size-[10em] landscape:top-0 ${
         isHidden
           ? "translate-x-full translate-y-full"
           : isActive
