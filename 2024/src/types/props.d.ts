@@ -21,7 +21,7 @@ declare global {
     contactsData: ContactsFetchProps;
     educationData: EducationFetchProps;
     experienceData: ExperienceFetchProps;
-    skillsData: any;
+    skillsData: SkillsByType;
     projectsData: ProjectsFetchProps;
   };
 
@@ -43,7 +43,6 @@ declare global {
     logo: string;
     name: string;
     link: string;
-    main: boolean;
   }[];
 
   type EducationFetchProps = {
