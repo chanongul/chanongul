@@ -4,6 +4,9 @@ export default defineType({
   name: "contact",
   title: "Contact",
   type: "document",
+  initialValue: {
+    main: false,
+  },
   preview: {
     select: {
       title: "name",
@@ -34,6 +37,11 @@ export default defineType({
         Rule.required().uri({
           scheme: ["http", "https", "mailto", "tel"],
         }),
+    }),
+    defineField({
+      name: "main",
+      title: "Main Contact",
+      type: "boolean",
     }),
   ],
 });
