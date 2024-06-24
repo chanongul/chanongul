@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { wrapGrid } from "animate-css-grid";
 import Education from "@/app/home/detailed/education";
 import Experience from "@/app/home/detailed/experience";
+import Statement from "@/app/home/detailed/statement";
 import Profile from "@/app/home/detailed/profile";
+import Contact from "@/app/home/detailed/contact";
 import Skills from "@/app/home/detailed/skills";
 import Projects from "@/app/home/detailed/projects";
 import Navigator from "@/app/home/detailed/nav";
@@ -49,11 +51,15 @@ export default function DetailedHomePage({
         experienceData={experienceData}
       />
 
+      <Statement currentSection={currentSection} />
+
       <Profile
         currentSection={currentSection}
         contactsData={contactsData}
         profileData={profileData}
       />
+
+      <Contact currentSection={currentSection} />
 
       <Skills currentSection={currentSection} skillsData={skillsData} />
 
