@@ -36,6 +36,7 @@ declare global {
   type ProfileFetchProps = {
     photo: string;
     statement: string;
+    description: string;
   };
 
   type ContactsFetchProps = {
@@ -109,11 +110,13 @@ declare global {
     src: URLWithName[];
   }[];
 
-  type ProfileTileProps = Pick<HomePageTilesProps, "currentSection"> &
-    ProfileFetchProps;
+  type ProfileTileProps = Pick<HomePageTilesProps, "currentSection"> & {
+    profileData: Pick<ProfileFetchProps, "photo" | "description">;
+  };
 
-  type StatementTileProps = Pick<HomePageTilesProps, "currentSection"> &
-    Pick<ProfileFetchProps, "statement">;
+  type StatementTileProps = Pick<HomePageTilesProps, "currentSection"> & {
+    statementData: Pick<ProfileFetchProps, "statement">;
+  };
 
   type ContactTileProps = Pick<HomePageTilesProps, "currentSection"> & {
     contactsData: ContactsFetchProps;
@@ -135,8 +138,10 @@ declare global {
     projectsData: ProjectsFetchProps;
   };
 
-  type DetailedProfileProps = Pick<DetailedHomePageProps, "currentSection"> &
-    ProfileFetchProps & { contactsData: ContactsFetchProps };
+  type DetailedProfileProps = Pick<DetailedHomePageProps, "currentSection"> & {
+    profileData: ProfileFetchProps;
+    contactsData: ContactsFetchProps;
+  };
 
   type DetailedEducationProps = Pick<
     DetailedHomePageProps,

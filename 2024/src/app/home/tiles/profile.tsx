@@ -3,8 +3,7 @@ import LoadingIndicator from "@/app/components/loading-indicator";
 
 export default function ProfileTile({
   currentSection: curSect,
-  photo,
-  statement,
+  profileData,
 }: ProfileTileProps) {
   return (
     <section
@@ -12,7 +11,7 @@ export default function ProfileTile({
     >
       <div className="grid h-full w-full grid-cols-1 grid-rows-[auto_1fr] place-content-center justify-items-center gap-x-[10%] gap-y-[5%] p-[10%] sm:!p-[5%] md:gap-x-[5%] md:!p-[15%] xs:p-[5%] landscape:grid-cols-[5fr_4fr] landscape:grid-rows-none landscape:justify-items-start landscape:p-[10%] md:landscape:!p-[5%]">
         <ReactSVG
-          src={photo}
+          src={profileData.photo}
           loading={LoadingIndicator}
           fallback={LoadingIndicator}
           className="row-span-1 row-start-2 flex h-full items-center justify-center place-self-center overflow-hidden text-orange-500 transition-all duration-300 landscape:row-span-2 landscape:row-start-auto landscape:w-full landscape:overflow-visible [&>#loading-indicator]:h-6 [&>#loading-indicator]:text-black md:[&>#loading-indicator]:h-6 xl:[&>#loading-indicator]:h-12 dark:[&>#loading-indicator]:text-white [&>div]:h-full [&>div]:w-auto landscape:[&>div]:h-auto landscape:[&>div]:w-full"
@@ -25,8 +24,8 @@ export default function ProfileTile({
             Gulgattimas
           </span>
         </h1>
-        <p className="hidden self-start text-[0.65em] font-extralight leading-normal md:text-[1.2vw] landscape:inline">
-          {statement}
+        <p className="hidden self-start text-[0.65em] font-light leading-normal md:text-[1.2vw] landscape:inline">
+          {profileData.description}
         </p>
       </div>
     </section>

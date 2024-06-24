@@ -21,13 +21,9 @@ export default function HomePageTiles({
 
       <Experience currentSection={curSect} experienceData={experienceData} />
 
-      <Statement currentSection={curSect} statement={profileData.statement} />
+      <Statement currentSection={curSect} statementData={profileData} />
 
-      <Profile
-        currentSection={curSect}
-        photo={profileData.photo}
-        statement={profileData.statement}
-      />
+      <Profile currentSection={curSect} profileData={profileData} />
 
       <Contact currentSection={curSect} contactsData={contactsData} />
 

@@ -2,7 +2,8 @@ import { groq } from "next-sanity";
 
 export const profileQuery = groq`*[_type=="profile"]{
   "photo":photo.asset->url,
-  "statement":stmt
+  "statement":stmt,
+  "description":desc
 }[0]`;
 
 export const contactsQuery = groq`*[_type=="contact"]{
@@ -50,11 +51,11 @@ export const experienceQuery = groq`*[_type=="experience"]{
     "contribution":contrib,
     "links":links[]->{
       name,
-      url,
+      url
     },
     "src":src[]->{
       name,
-      url,
+      url
     }
   }
 }`;
@@ -64,7 +65,7 @@ export const skillsQuery = groq`*[_type=="skill"]{
   name,
   prof,
   "type":type->name,
-  "subtype":subtype->name,
+  "subtype":subtype->name
 }`;
 
 export const skillTypesQuery = groq`*[_type=="skillType"]{
@@ -85,10 +86,10 @@ export const projectsQuery = groq`*[_type=="project"]{
   "contribution":contrib,
   "links":links[]->{
     name,
-    url,
+    url
   },
   "src":src[]->{
     name,
-    url,
+    url
   }
 }`;

@@ -1,6 +1,5 @@
 export default function StatementTile({
   currentSection: curSect,
-  statement,
 }: StatementTileProps) {
   return (
     <section

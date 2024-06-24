@@ -52,7 +52,7 @@ export default function DetailedHomePage({
       <Profile
         currentSection={currentSection}
         contactsData={contactsData}
-        {...profileData}
+        profileData={profileData}
       />
 
       <Skills currentSection={currentSection} skillsData={skillsData} />
