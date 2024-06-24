@@ -43,6 +43,7 @@ declare global {
     logo: string;
     name: string;
     link: string;
+    main: boolean;
   }[];
 
   type EducationFetchProps = {
