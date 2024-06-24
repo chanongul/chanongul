@@ -10,7 +10,8 @@ const config: Config = {
     },
     extend: {
       screens: {
-        xs: "375px",
+        "2xs": "376px",
+        xs: "540px",
         touch: { raw: "(hover: none)" },
         "no-touch": { raw: "(hover: hover) and (pointer: fine)" },
       },
