@@ -18,7 +18,7 @@ declare global {
 
   type HomePageProps = {
     profileData: ProfileFetchProps;
-    contactsData: ContactsFetchProps;
+    contactData: ContactFetchProps;
     educationData: EducationFetchProps;
     experienceData: ExperienceFetchProps;
     skillsData: SkillsByType;
@@ -39,7 +39,7 @@ declare global {
     description: string;
   };
 
-  type ContactsFetchProps = {
+  type ContactFetchProps = {
     logo: string;
     name: string;
     link: string;
@@ -118,8 +118,8 @@ declare global {
     statementData: Pick<ProfileFetchProps, "statement">;
   };
 
-  type ContactTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    contactsData: ContactsFetchProps;
+  type ContactTileProps = Pick<HomePageProps, "currentSection"> & {
+    contactData: ContactFetchProps;
   };
 
   type EdutcationTileProps = Pick<HomePageTilesProps, "currentSection"> & {
@@ -140,7 +140,11 @@ declare global {
 
   type DetailedProfileProps = Pick<DetailedHomePageProps, "currentSection"> & {
     profileData: ProfileFetchProps;
-    contactsData: ContactsFetchProps;
+    contactData: ContactFetchProps;
+  };
+
+  type DetailedContactProps = Pick<DetailedHomePageProps, "currentSection"> & {
+    contactData: ContactFetchProps;
   };
 
   type DetailedEducationProps = Pick<
@@ -155,6 +159,7 @@ declare global {
 
   type DetailedSkillsProps = Pick<DetailedHomePageProps, "currentSection"> & {
     skillsData: SkillsByType;
+    setProjFilters: Dispatch<SetStateAction<string[]>>;
   };
 
   type DetailedProjectsProps = Pick<DetailedHomePageProps, "currentSection"> & {

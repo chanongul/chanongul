@@ -9,7 +9,7 @@ import Projects from "@/app/home/tiles/projects";
 export default function HomePageTiles({
   currentSection: curSect,
   profileData,
-  contactsData,
+  contactData: contactsData,
   educationData,
   experienceData,
   skillsData,
@@ -25,7 +25,7 @@ export default function HomePageTiles({
 
       <Profile currentSection={curSect} profileData={profileData} />
 
-      <Contact currentSection={curSect} contactsData={contactsData} />
+      <Contact currentSection={curSect} contactData={contactsData} />
 
       <Skills currentSection={curSect} skillsData={skillsData} />
 

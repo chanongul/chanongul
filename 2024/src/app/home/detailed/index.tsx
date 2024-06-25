@@ -15,7 +15,7 @@ import TileBackground from "@/app/home/detailed/background";
 export default function DetailedHomePage({
   currentSection,
   profileData,
-  contactsData,
+  contactData: contactsData,
   educationData,
   experienceData,
   skillsData,
@@ -55,13 +55,17 @@ export default function DetailedHomePage({
 
       <Profile
         currentSection={currentSection}
-        contactsData={contactsData}
+        contactData={contactsData}
         profileData={profileData}
       />
 
-      <Contact currentSection={currentSection} />
+      <Contact currentSection={currentSection} contactData={contactsData} />
 
-      <Skills currentSection={currentSection} skillsData={skillsData} />
+      <Skills
+        currentSection={currentSection}
+        skillsData={skillsData}
+        setProjFilters={setProjFilters}
+      />
 
       <Projects
         currentSection={currentSection}

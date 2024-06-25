@@ -17,7 +17,7 @@ export default async function Home() {
   const profileData = await sanityFetch<ProfileFetchProps>({
     query: profileQuery,
   });
-  const contactsData = await sanityFetch<ContactsFetchProps>({
+  const contactsData = await sanityFetch<ContactFetchProps>({
     query: contactsQuery,
   });
   const educationData = await sanityFetch<EducationFetchProps>({
@@ -69,7 +69,7 @@ export default async function Home() {
   return (
     <HomePage
       profileData={profileData}
-      contactsData={contactsData}
+      contactData={contactsData}
       educationData={educationData}
       experienceData={experienceData}
       skillsData={skills}

@@ -2,7 +2,7 @@ import { ReactSVG } from "react-svg";
 
 export default function ContactTile({
   currentSection: curSect,
-  contactsData: contacts,
+  contactData: contacts,
 }: ContactTileProps) {
   return (
     <section
