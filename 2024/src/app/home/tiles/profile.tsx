@@ -17,10 +17,10 @@ export default function ProfileTile({
           className="col-span-2 row-span-1 row-start-2 flex h-full max-w-lg items-center justify-center place-self-center overflow-hidden text-orange-500 transition-all duration-300 landscape:col-span-1 landscape:row-span-2 landscape:row-start-auto landscape:w-full landscape:overflow-visible [&>#loading-indicator]:h-6 [&>#loading-indicator]:text-black md:[&>#loading-indicator]:h-6 xl:[&>#loading-indicator]:h-12 dark:[&>#loading-indicator]:text-white [&>div]:h-full [&>div]:w-auto landscape:[&>div]:h-auto landscape:[&>div]:w-full"
         />
         <h1 className="col-span-2 row-start-1 -ml-[1%] inline-flex flex-col text-center font-serif text-[3em] leading-none landscape:col-span-1 landscape:row-start-auto landscape:self-end landscape:text-start">
-          <span className="text-[0.75em] sm:!text-[1em] 2xl:!text-[1.25em] sm:landscape:text-[0.7em] md:landscape:text-[0.85em] lg:landscape:text-[1em]">
+          <span className="text-[0.75em] sm:text-[1em] 2xl:!text-[1.25em] sm:landscape:text-[0.7em] md:landscape:text-[0.85em] lg:landscape:text-[1em]">
             Chanon
           </span>
-          <span className="text-[0.5em] sm:!text-[0.75em] 2xl:!text-[1em] sm:landscape:text-[0.5em] md:landscape:text-[0.65em] lg:landscape:text-[0.75em]">
+          <span className="text-[0.5em] sm:text-[0.75em] 2xl:!text-[1em] sm:landscape:text-[0.5em] md:landscape:text-[0.65em] lg:landscape:text-[0.75em]">
             Gulgattimas
           </span>
         </h1>
