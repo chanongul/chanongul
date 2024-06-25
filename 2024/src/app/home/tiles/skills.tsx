@@ -3,7 +3,7 @@ export default function SkillsTile({
 }: SkillsTileProps) {
   return (
     <section
-      className={`order-6 landscape:order-none md:order-none row-span-2 landscape:row-span-7 md:row-span-7 col-span-6 landscape:col-span-1 md:col-span-1 ${curSect ? "opacity-0" : "opacity-100"}`}
+      className={`order-6 col-span-6 row-span-2 md:order-none md:col-span-1 md:row-span-7 landscape:order-none landscape:col-span-1 landscape:row-span-7 ${curSect ? "opacity-0" : "opacity-100"}`}
     >
       skills
     </section>
