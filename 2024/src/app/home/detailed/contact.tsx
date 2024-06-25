@@ -9,7 +9,7 @@ export default function DetailedContacts({
 
   return (
     <section
-      className={`relative order-2 col-span-2 row-span-4 opacity-0 md:order-none md:row-span-3 landscape:order-none landscape:row-span-3 ${curSect ? "h-0 w-0 overflow-hidden" : ""}`}
+      className={`relative order-2 col-span-2 row-span-4 opacity-0 md:order-none md:row-span-3 landscape:order-none landscape:row-span-3 ${curSect ? "h-0 w-0 overflow-hidden" : "cursor-pointer"}`}
       onClick={() => setCurSect(sectName)}
     >
       <article className="grid h-full w-full grid-flow-col grid-cols-6 grid-rows-6 items-center justify-items-center gap-y-[10%] p-[20%] sm:gap-y-[12%] sm:p-[15%] md:grid-flow-row md:!gap-x-[5%] md:gap-y-[20%] md:p-[10%] xs:gap-x-[10%] landscape:!gap-x-[5%] landscape:p-[5%] md:landscape:!gap-x-[5%] md:landscape:p-[5%]">
