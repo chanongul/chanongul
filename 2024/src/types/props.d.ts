@@ -11,6 +11,8 @@ import { type QueryParams } from "sanity";
 declare global {
   type ChildrenProps = Readonly<{ children?: ReactNode }>;
 
+  type ClassProps = { className?: string };
+
   type SanityFetchProps = {
     query: string;
     qParams?: QueryParams;
@@ -114,9 +116,8 @@ declare global {
     profileData: Pick<ProfileFetchProps, "photo" | "description">;
   };
 
-  type StatementTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    statementData: Pick<ProfileFetchProps, "statement">;
-  };
+  type StatementTileProps = Pick<HomePageTilesProps, "currentSection"> &
+    Pick<ProfileFetchProps, "statement">;
 
   type ContactTileProps = Pick<HomePageProps, "currentSection"> & {
     contactData: ContactFetchProps;
