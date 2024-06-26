@@ -9,23 +9,23 @@ import Projects from "@/app/home/tiles/projects";
 export default function HomePageTiles({
   currentSection: curSect,
   profileData,
-  contactData: contactsData,
+  contactData,
   educationData,
   experienceData,
   skillsData,
   projectsData,
 }: HomePageTilesProps) {
   return (
-    <div className="auto-rows-1fr relative grid h-dvh w-full grid-cols-6 grid-rows-13 gap-3 p-3 text-sm md:grid-flow-col md:grid-cols-4 md:grid-rows-12 md:text-base xl:gap-4 xl:p-4 xl:text-xl landscape:grid-flow-col landscape:grid-cols-4 landscape:grid-rows-12">
+    <div className="relative grid h-dvh w-full grid-cols-6 grid-rows-13 gap-3 p-3 text-sm md:grid-flow-col md:grid-cols-4 md:grid-rows-12 md:text-base xl:gap-4 xl:p-4 xl:text-xl landscape:grid-flow-col landscape:grid-cols-4 landscape:grid-rows-12">
       <Education currentSection={curSect} educationData={educationData} />
 
       <Experience currentSection={curSect} experienceData={experienceData} />
 
-      <Statement currentSection={curSect} statementData={profileData} />
+      <Contact currentSection={curSect} contactData={contactData} />
 
       <Profile currentSection={curSect} profileData={profileData} />
 
-      <Contact currentSection={curSect} contactData={contactsData} />
+      <Statement currentSection={curSect} statement={profileData.statement} />
 
       <Skills currentSection={curSect} skillsData={skillsData} />
 

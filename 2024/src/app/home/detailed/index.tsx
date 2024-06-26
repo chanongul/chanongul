@@ -37,7 +37,7 @@ export default function DetailedHomePage({
   return (
     <div
       ref={gridContainerRef}
-      className={`absolute left-0 top-0 grid h-dvh w-full grid-cols-6 grid-rows-13 p-3 md:grid-cols-4 md:grid-rows-12 xl:p-4 landscape:grid-cols-4 landscape:grid-rows-12 ${curSect ? "grid-rows-1 !gap-0" : "gap-3 md:grid-flow-col xl:gap-4 landscape:grid-flow-col"}`}
+      className={`absolute left-0 top-0 z-10 grid h-dvh w-full grid-cols-6 grid-rows-13 p-3 md:grid-cols-4 md:grid-rows-12 xl:p-4 landscape:grid-cols-4 landscape:grid-rows-12 ${curSect ? "grid-rows-1 !gap-0" : "gap-3 md:grid-flow-col xl:gap-4 landscape:grid-flow-col"}`}
     >
       <TileBackground currentSection={currentSection[0]} />
 
@@ -51,7 +51,7 @@ export default function DetailedHomePage({
         experienceData={experienceData}
       />
 
-      <Statement currentSection={currentSection} />
+      <Contact currentSection={currentSection} contactData={contactsData} />
 
       <Profile
         currentSection={currentSection}
@@ -59,7 +59,7 @@ export default function DetailedHomePage({
         profileData={profileData}
       />
 
-      <Contact currentSection={currentSection} contactData={contactsData} />
+      <Statement currentSection={currentSection} />
 
       <Skills
         currentSection={currentSection}
