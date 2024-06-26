@@ -23,14 +23,19 @@ const config: Config = {
         "13": "repeat(13, minmax(0, 1fr))",
       },
       keyframes: {
+        // floating: {
+        //   "0%": { transform: "translateY(0)" },
+        //   "50%": { transform: "translateY(-0.25em)" },
+        //   "100%": { transform: "translateY(0)" },
+        // },
         floating: {
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-0.25em)" },
-          "100%": { transform: "translateY(0)" },
+          "0%,50%,100%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(0.5em)" },
+          "75%": { transform: "translateY(-0.5em)" },
         },
       },
       animation: {
-        floating: "floating 3s ease-in-out infinite",
+        floating: "floating 1s linear infinite",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",

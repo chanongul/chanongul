@@ -26,6 +26,7 @@ section {
   align-items: center;
   transition:
     color 300ms,
+    border-color 300ms,
     background-color 300ms,
     opacity 400ms;
   @apply rounded-xl bg-neutral-200 text-black md:rounded-2xl landscape:rounded-2xl dark:bg-black dark:text-white;
@@ -34,42 +35,5 @@ section {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-
-#hide-overflow-text::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  z-index: -1;
-
-  mask: linear-gradient(to top, black 10%, #00000099 40%, transparent 100%);
-  backdrop-filter: blur(10px);
-}
-
-#theme-toggler::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 300ms;
-
-  mask: radial-gradient(circle, black 30%, #000000ee 50%, transparent 70%);
-  backdrop-filter: blur(20px);
-}
-
-@keyframes loading-indicator {
-  from {
-    transform: translateY(0);
-  }
-  20% {
-    transform: translateY(0.75em);
-  }
-  80% {
-    transform: translateY(-0.75em);
-  }
-  to {
-    transform: translateY(0);
   }
 }

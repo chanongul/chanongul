@@ -9,13 +9,10 @@ export default function StatementTile({
   const [isMounted, setMounted] = useState<boolean>(false);
   const [isOverflowing, setOverflowing] = useState<boolean>(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const overflowTextRef = useRef<HTMLDivElement>(null);
 
   const checkOverflow = () => {
     const sectionEl = sectionRef.current;
-    const overflowTextEl = overflowTextRef.current;
-
-    if (sectionEl && overflowTextEl) {
+    if (sectionEl) {
       setOverflowing(sectionEl.scrollHeight > sectionEl.clientHeight);
     }
   };
@@ -23,7 +20,6 @@ export default function StatementTile({
   useEffect(() => {
     setMounted(true);
     window.addEventListener("resize", checkOverflow);
-
     return () => {
       window.removeEventListener("resize", checkOverflow);
     };
@@ -38,18 +34,13 @@ export default function StatementTile({
       ref={sectionRef}
       className={`relative order-3 col-span-6 row-span-2 overflow-hidden border border-neutral-200 md:order-none md:col-span-2 md:row-span-3 landscape:order-none landscape:col-span-2 landscape:row-span-3 dark:border-black ${
         curSect ? "opacity-0" : "flex opacity-100"
-      } ${isOverflowing ? "items-start" : "items-center"}`}
+      }`}
     >
       <article
-        className={`flex w-full items-center justify-center text-justify font-serif leading-relaxed ${isMounted ? "h-fit px-[1em] py-[0.5em]" : "h-full p-[2%]"}`}
+        className={`flex w-full justify-center text-justify font-serif leading-relaxed ${isMounted ? "h-full px-[1em] py-[0.5em]" : "h-full p-[2%]"} ${isOverflowing ? "items-start [mask-image:linear-gradient(to_top,transparent_10%,black_50%)]" : "items-center [mask-image:none]"}`}
       >
         {isMounted ? statement : <Skeleton />}
       </article>
-      <div
-        id="hide-overflow-text"
-        ref={overflowTextRef}
-        className={`absolute bottom-0 left-0 z-10 h-1/3 w-full bg-neutral-200/20 opacity-0 transition-all duration-300 dark:bg-black/20 ${isOverflowing ? "opacity-100" : "opacity-0"}`}
-      />
     </section>
   );
 }
