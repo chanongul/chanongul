@@ -37,7 +37,7 @@ export default function StatementTile({
       }`}
     >
       <article
-        className={`flex w-full justify-center text-justify font-serif leading-relaxed ${isMounted ? "h-full px-[1em] py-[0.5em]" : "h-full p-[2%]"} ${isOverflowing ? "items-start [mask-image:linear-gradient(to_top,transparent_10%,black_50%)]" : "items-center [mask-image:none]"}`}
+        className={`flex w-full justify-center text-justify font-serif leading-relaxed ${isMounted ? "h-full px-[1em] py-[0.5em]" : "h-full p-[2%]"} ${isOverflowing ? "items-start [mask-image:linear-gradient(to_top,transparent_10%,black_25%)]" : "items-center [mask-image:none]"}`}
       >
         {isMounted ? statement : <Skeleton />}
       </article>
