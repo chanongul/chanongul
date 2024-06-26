@@ -6,7 +6,8 @@ const config: Config = {
   content: ["./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     fontFamily: {
-      serif: ["var(--font-dm-serif-display)", "serif"],
+      serif: ["Platypi", "serif"],
+      cursive: ["Borel", "cursive"],
     },
     extend: {
       screens: {
