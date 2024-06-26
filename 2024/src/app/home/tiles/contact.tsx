@@ -18,11 +18,19 @@ export default function ContactTile({
           >
             <ReactSVG
               src={contact.logo}
-              className="inline-block h-full w-full text-orange-500 [&>div>svg]:h-full [&>div>svg]:w-full [&>div]:h-full [&>div]:w-auto xl:landscape:[&>div]:h-auto xl:landscape:[&>div]:w-full"
+              loading={Skeleton}
+              fallback={Skeleton}
+              className="flex h-full w-full items-center justify-center text-orange-500 [&>div>svg]:h-full [&>div>svg]:w-full [&>div]:h-full [&>div]:w-auto xl:landscape:[&>div]:h-auto xl:landscape:[&>div]:w-full"
             />
           </a>
         ))}
       </article>
     </section>
+  );
+}
+
+function Skeleton() {
+  return (
+    <span className="mx-auto block aspect-square h-full w-auto rounded-full bg-black/10 xs:h-auto xs:w-full md:landscape:h-auto md:landscape:w-full xl:landscape:h-auto xl:landscape:w-full dark:bg-white/10" />
   );
 }
