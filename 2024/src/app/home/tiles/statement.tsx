@@ -1,6 +1,6 @@
 "use client";
 
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function StatementTile({
   currentSection: curSect,
@@ -37,7 +37,7 @@ export default function StatementTile({
       }`}
     >
       <article
-        className={`flex w-full justify-center text-justify font-serif leading-relaxed ${isMounted ? "h-full px-[1em] py-[0.5em]" : "h-full p-[2%]"} ${isOverflowing ? "items-start [mask-image:linear-gradient(to_top,transparent_1%,black_25%)]" : "items-center [mask-image:none]"}`}
+        className={`font-mono flex w-full justify-center text-justify leading-relaxed ${isMounted ? "h-full px-[1em] py-[0.5em]" : "h-full p-[2%]"} ${isOverflowing ? "items-start [mask-image:linear-gradient(to_top,transparent_1%,black_25%)]" : "items-center text-[1em] [mask-image:none] xl:text-[0.85em] 2xl:text-[1em]"}`}
       >
         {isMounted ? statement : <Skeleton />}
       </article>
@@ -47,7 +47,9 @@ export default function StatementTile({
 
 function Skeleton({ className }: ClassProps) {
   return (
-    <div className={`grid h-full w-full items-center ${className}`}>
+    <div
+      className={`grid h-full w-full animate-pulse items-center ${className}`}
+    >
       <div className="flex h-3/5 gap-[2%]">
         <div className="h-full w-1/4 rounded-full bg-black/10 dark:bg-white/10" />
         <div className="h-full w-1/2 rounded-full bg-black/10 dark:bg-white/10" />

@@ -6,6 +6,8 @@ const config: Config = {
   content: ["./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     fontFamily: {
+      sans: ["Inter", "sans-serif"],
+      mono: ["Fira Mono", "monospace"],
       serif: ["Platypi", "serif"],
       cursive: ["Borel", "cursive"],
     },

@@ -12,7 +12,7 @@ export const contactsQuery = groq`*[_type=="contact"] | order(main asc, name asc
   link,
 }`;
 
-export const educationQuery = groq`*[_type=="education"] | order(name asc){
+export const educationQuery = groq`*[_type=="education"] | order(to asc){
   "logo":logo.asset->url,
   name,
   level,
@@ -24,7 +24,7 @@ export const educationQuery = groq`*[_type=="education"] | order(name asc){
   temp
 }`;
 
-export const experienceQuery = groq`*[_type=="experience"] | order(name asc){
+export const experienceQuery = groq`*[_type=="experience"] | order(to asc){
   "logo":logo.asset->url,
   name,
   title,
@@ -73,7 +73,7 @@ export const skillTypesQuery = groq`*[_type=="skillType"] | order(name asc){
   "subtypes": *[_type=="skillSubtype" && references(^._id)].name
 }`;
 
-export const projectsQuery = groq`*[_type=="project"] | order(name asc){
+export const projectsQuery = groq`*[_type=="project"] | order(to asc){
   "thumbnail":thumbnail.asset->url,
   figma,
   video,
