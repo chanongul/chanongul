@@ -6,7 +6,7 @@ export default function LoadingIndicator() {
       {Array.from({ length: indicatorCount }).map((_, i) => (
         <span
           key={i}
-          className={`block aspect-square min-h-full w-auto animate-floating rounded-full bg-current transition-colors`}
+          className={`animate-float block aspect-square min-h-full w-auto rounded-full bg-current transition-colors`}
           style={{
             animationDelay: `${i * 200}ms`,
           }}

@@ -4,9 +4,6 @@ export default defineType({
   name: "education",
   title: "Education",
   type: "document",
-  initialValue: {
-    temp: false,
-  },
   preview: {
     select: {
       title: "level",
@@ -63,11 +60,6 @@ export default defineType({
       title: "GPA",
       type: "number",
       validation: (Rule) => Rule.required().min(0).max(4),
-    }),
-    defineField({
-      name: "temp",
-      title: "Temporary",
-      type: "boolean",
     }),
   ],
 });

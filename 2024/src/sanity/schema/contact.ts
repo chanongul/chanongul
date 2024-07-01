@@ -4,9 +4,6 @@ export default defineType({
   name: "contact",
   title: "Contact",
   type: "document",
-  initialValue: {
-    main: false,
-  },
   preview: {
     select: {
       title: "name",
@@ -39,9 +36,16 @@ export default defineType({
         }),
     }),
     defineField({
+      name: "color",
+      title: "Color",
+      type: "string",
+      initialValue: "#00000000",
+    }),
+    defineField({
       name: "main",
       title: "Main Contact",
       type: "boolean",
+      initialValue: false,
     }),
   ],
 });

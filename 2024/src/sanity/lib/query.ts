@@ -6,13 +6,15 @@ export const profileQuery = groq`*[_type=="profile"]{
   "description":desc
 }[0]`;
 
-export const contactsQuery = groq`*[_type=="contact"] | order(main asc, name asc){
+export const contactsQuery = groq`*[_type=="contact"] | order(name asc){
   "logo":logo.asset->url,
   name,
   link,
+  color,
+  main
 }`;
 
-export const educationQuery = groq`*[_type=="education"] | order(to asc){
+export const educationQuery = groq`*[_type=="education"] | order(from desc){
   "logo":logo.asset->url,
   name,
   level,
@@ -24,7 +26,7 @@ export const educationQuery = groq`*[_type=="education"] | order(to asc){
   temp
 }`;
 
-export const experienceQuery = groq`*[_type=="experience"] | order(to asc){
+export const experienceQuery = groq`*[_type=="experience"] | order(from desc){
   "logo":logo.asset->url,
   name,
   title,
@@ -75,6 +77,7 @@ export const skillTypesQuery = groq`*[_type=="skillType"] | order(name asc){
 
 export const projectsQuery = groq`*[_type=="project"] | order(to asc){
   "thumbnail":thumbnail.asset->url,
+  "preview":preview.asset->url,
   figma,
   video,
   "images":images[].asset->url,

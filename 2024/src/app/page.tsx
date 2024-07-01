@@ -14,25 +14,25 @@ export const runtime = "edge";
 export const dynamicParams = false;
 
 export default async function Home() {
-  const profileData = await sanityFetch<ProfileFetchProps>({
+  const profileData = await sanityFetch<Profile>({
     query: profileQuery,
   });
-  const contactsData = await sanityFetch<ContactFetchProps>({
+  const contactsData = await sanityFetch<Contact[]>({
     query: contactsQuery,
   });
-  const educationData = await sanityFetch<EducationFetchProps>({
+  const educationData = await sanityFetch<Education[]>({
     query: educationQuery,
   });
-  const experienceData = await sanityFetch<ExperienceFetchProps>({
+  const experienceData = await sanityFetch<Experience[]>({
     query: experienceQuery,
   });
-  const skillsData = await sanityFetch<SkillsFetchProps>({
+  const skillsData = await sanityFetch<Skill[]>({
     query: skillsQuery,
   });
-  const skillTypesData = await sanityFetch<SkillTypesFetchProps>({
+  const skillTypesData = await sanityFetch<SkillType[]>({
     query: skillTypesQuery,
   });
-  const projectsData = await sanityFetch<ProjectsFetchProps>({
+  const projectsData = await sanityFetch<Project[]>({
     query: projectsQuery,
   });
   const skills: SkillsByType = skillTypesData.reduce(
@@ -72,7 +72,8 @@ export default async function Home() {
       contactData={contactsData}
       educationData={educationData}
       experienceData={experienceData}
-      skillsData={skills}
+      skillsData={skillsData}
+      skillTypesData={skillTypesData}
       projectsData={projectsData}
     />
   );

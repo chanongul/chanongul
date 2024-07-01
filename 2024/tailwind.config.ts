@@ -7,7 +7,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
-      mono: ["Fira Mono", "monospace"],
+      mono: ["Fira Code", "monospace"],
       serif: ["Platypi", "serif"],
       cursive: ["Borel", "cursive"],
     },
@@ -24,20 +24,23 @@ const config: Config = {
       gridTemplateRows: {
         "13": "repeat(13, minmax(0, 1fr))",
       },
+      transitionDuration: {
+        400: "400ms",
+      },
       keyframes: {
-        // floating: {
-        //   "0%": { transform: "translateY(0)" },
-        //   "50%": { transform: "translateY(-0.25em)" },
-        //   "100%": { transform: "translateY(0)" },
-        // },
-        floating: {
+        float: {
           "0%,50%,100%": { transform: "translateY(0)" },
           "25%": { transform: "translateY(0.5em)" },
           "75%": { transform: "translateY(-0.5em)" },
         },
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
-        floating: "floating 1s linear infinite",
+        float: "float 1s linear infinite",
+        scroll: "scroll 5s linear infinite",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",

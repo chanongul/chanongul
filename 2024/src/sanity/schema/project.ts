@@ -4,9 +4,6 @@ export default defineType({
   name: "project",
   title: "Project",
   type: "document",
-  initialValue: {
-    solo: false,
-  },
   preview: {
     select: {
       title: "name",
@@ -17,6 +14,13 @@ export default defineType({
     defineField({
       name: "thumbnail",
       title: "Thumbnail",
+      type: "image",
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "preview",
+      title: "Preview",
       type: "image",
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),
@@ -156,6 +160,7 @@ export default defineType({
       name: "solo",
       title: "Solo Project",
       type: "boolean",
+      initialValue: false,
     }),
     defineField({
       name: "contrib",

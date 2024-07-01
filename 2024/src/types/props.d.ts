@@ -1,5 +1,5 @@
-import { PortfolioDropdown } from "@/app/[locale]/home/portfolio/header";
 import {
+  CSSProperties,
   ChangeEvent,
   Dispatch,
   FormEvent,
@@ -19,35 +19,30 @@ declare global {
   };
 
   type HomePageProps = {
-    profileData: ProfileFetchProps;
-    contactData: ContactFetchProps;
-    educationData: EducationFetchProps;
-    experienceData: ExperienceFetchProps;
-    skillsData: SkillsByType;
-    projectsData: ProjectsFetchProps;
+    profileData: Profile;
+    contactData: Contact[];
+    educationData: Education[];
+    experienceData: Experience[];
+    skillsData: Skill[];
+    skillTypesData: SkillType[];
+    projectsData: Project[];
   };
 
-  type DetailedHomePageProps = {
-    currentSection: [string | null, Dispatch<SetStateAction<string | null>>];
-  } & HomePageProps;
-
-  type HomePageTilesProps = {
-    currentSection: string | null;
-  } & HomePageProps;
-
-  type ProfileFetchProps = {
+  type Profile = {
     photo: string;
     statement: string;
     description: string;
   };
 
-  type ContactFetchProps = {
+  type Contact = {
     logo: string;
     name: string;
     link: string;
-  }[];
+    color: string;
+    main: boolean;
+  };
 
-  type EducationFetchProps = {
+  type Education = {
     logo: string;
     name: string;
     level: string;
@@ -57,34 +52,31 @@ declare global {
     to: string;
     gpa: string;
     temp: string;
-  }[];
+  };
 
-  type ExperienceFetchProps = {
+  type Experience = {
     logo: string;
     name: string;
     title: string;
     from: string;
     to: string;
     description: string;
-    skills: SkillsFetchProps;
-    projects: ProjectsFetchProps;
-  }[];
-
-  type SkillsFetchProps = (Skill & {
-    type: string;
-    subtype: string;
-  })[];
+    skills: Skill[];
+    projects: Project[];
+  };
 
   type Skill = {
     logo: string;
     name: string;
     prof: number;
+    type: string;
+    subtype: string;
   };
 
-  type SkillTypesFetchProps = {
+  type SkillType = {
     name: string;
     subtypes: string[];
-  }[];
+  };
 
   type SkillsByType = {
     [type: string]:
@@ -99,7 +91,10 @@ declare global {
     url: string;
   };
 
-  type ProjectsFetchProps = {
+  type Project = {
+    name: string;
+    type: string[];
+    preview: string;
     thumbnail: string;
     figma?: string;
     video?: string;
@@ -110,67 +105,95 @@ declare global {
     to: string;
     links: URLWithName[];
     src: URLWithName[];
-  }[];
-
-  type ProfileTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    profileData: Pick<ProfileFetchProps, "photo" | "description">;
   };
 
-  type StatementTileProps = Pick<HomePageTilesProps, "currentSection"> &
-    Pick<ProfileFetchProps, "statement">;
+  type ProfileSectionProps = Pick<Profile, "photo">;
 
-  type ContactTileProps = Pick<HomePageProps, "currentSection"> & {
-    contactData: ContactFetchProps;
+  type ProfilePhotoProps = Pick<Profile, "photo">;
+
+  type ContactSectionProps = {
+    contacts: Contact[];
   };
 
-  type EdutcationTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    educationData: EducationFetchProps;
+  type ContactCardProps = {
+    contact: Contact;
   };
 
-  type ExperienceTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    experienceData: ExperienceFetchProps;
+  type StatementSectionProps = Pick<Profile, "statement">;
+
+  type ExperienceSectionProps = {
+    education: Education[];
+    experience: Experience[];
   };
 
-  type SkillsTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    skillsData: SkillsByType;
+  type ExperienceLinkProps = {
+    header: string;
   };
 
-  type ProjectsTileProps = Pick<HomePageTilesProps, "currentSection"> & {
-    projectsData: ProjectsFetchProps;
+  type ExperienceTileProps = {
+    header: string;
+    children: ReactNode;
+    className?: string;
+    style?: CSSProperties;
   };
 
-  type DetailedProfileProps = Pick<DetailedHomePageProps, "currentSection"> & {
-    profileData: ProfileFetchProps;
-    contactData: ContactFetchProps;
+  type ExperiencePartTileProps = {
+    experience: Experience[];
   };
 
-  type DetailedContactProps = Pick<DetailedHomePageProps, "currentSection"> & {
-    contactData: ContactFetchProps;
+  type EducationPartTileProps = {
+    education: Education[];
   };
 
-  type DetailedEducationProps = Pick<
-    DetailedHomePageProps,
-    "currentSection"
-  > & { educationData: EducationFetchProps };
-
-  type DetailedExperienceProps = Pick<
-    DetailedHomePageProps,
-    "currentSection"
-  > & { experienceData: ExperienceFetchProps };
-
-  type DetailedSkillsProps = Pick<DetailedHomePageProps, "currentSection"> & {
-    skillsData: SkillsByType;
-    setProjFilters: Dispatch<SetStateAction<string[]>>;
+  type ExperienceCardProps = {
+    h1: string;
+    h2: string;
+    from: string;
+    to: string;
   };
 
-  type DetailedProjectsProps = Pick<DetailedHomePageProps, "currentSection"> & {
-    projectsData: ProjectsFetchProps;
-    filters: string[];
+  type SkillsSectionProps = {
+    skills: Skill[];
+    skillTypes: SkillType[];
   };
 
-  type TileBackgroundProps = Pick<HomePageTilesProps, "currentSection">;
+  type SkillsTileProps = {
+    type: string;
+    skills: Skill[];
+    index: number;
+    typesCount: number;
+  };
 
-  type NavigatorProps = Pick<DetailedHomePageProps, "currentSection">;
+  type SkillsLinkProps = {
+    containerRef: RefObject<HTMLElement>;
+    type: string;
+  };
+
+  type SkillsCarouselProps = {
+    containerRef: ForwardedRef<HTMLDivElement>;
+    skills: Skill[];
+  };
+
+  type SkillCardProps = {
+    logo: string;
+    name: string;
+    prof: number;
+  };
+
+  type ProjectsProps = {
+    projects: Project[];
+  };
+
+  type ProjectPreviewsProps = {
+    projects: Project[];
+    count: number;
+  };
+
+  type ProjectLinkProps = {
+    startYear: number;
+    length: number;
+    previewsCount: number;
+  };
 }
 
 export {};
