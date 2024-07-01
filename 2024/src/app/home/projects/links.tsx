@@ -23,7 +23,7 @@ export default function ProjectLinks({
         {isMounted && (
           <>
             <p className="flex w-full flex-col text-center font-mono text-[0.85em] md:text-[1em] 2xl:text-[1.25em] landscape:hidden">
-              Explore over
+              Explore
               <span className="text-[5em] font-black leading-none text-orange-500">
                 {length}
               </span>

@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 
 export default function ResumeLink() {
   const [isMounted, setMounted] = useState<boolean>(false);
-  const [hasClicked, setClicked] = useState<boolean>(true);
+  const [hasClicked, setClicked] = useState<boolean>(false);
   const { resolvedTheme: theme } = useTheme();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function ResumeLink() {
 
   return (
     <Link
-      href={`/docs/${theme}/chanongul.pdf`}
+      href={`/docs/${theme || "dark"}/chanongul.pdf`}
       target="_blank"
       onClick={() => {
         setClicked(true);
