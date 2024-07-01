@@ -6,21 +6,20 @@ const SkillsLink = forwardRef<HTMLDivElement, SkillsLinkProps>(
   ({ containerRef, type }, _) => {
     const [containerWidth, setContainerWidth] = useState<number>();
 
-    function updateWidth() {
-      const containerEl = (containerRef as RefObject<HTMLDivElement>).current;
-      if (containerEl) {
-        setContainerWidth(containerEl.clientWidth);
-      }
-    }
-
     useEffect(() => {
+      function updateWidth() {
+        const containerEl = (containerRef as RefObject<HTMLDivElement>).current;
+        if (containerEl) {
+          setContainerWidth(containerEl.clientWidth);
+        }
+      }
       updateWidth();
 
       window.addEventListener("resize", updateWidth);
       return () => {
         window.removeEventListener("resize", updateWidth);
       };
-    }, [updateWidth]);
+    }, [containerRef, type]);
 
     return (
       <Link
@@ -34,5 +33,7 @@ const SkillsLink = forwardRef<HTMLDivElement, SkillsLinkProps>(
     );
   },
 );
+
+SkillsLink.displayName = "SkillsLink";
 
 export default SkillsLink;

@@ -10,23 +10,21 @@ const SkillsCarousel = forwardRef<HTMLDivElement, SkillsCarouselProps>(
     const trackRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+      function checkOverflow() {
+        const containerEl = (containerRef as RefObject<HTMLDivElement>).current;
+        const trackEl = trackRef.current;
+        if (containerEl && trackEl) {
+          setOverflowing(trackEl.scrollWidth > containerEl.clientWidth);
+          setTrackHeight(trackEl.clientHeight);
+        }
+      }
       checkOverflow();
 
       window.addEventListener("resize", checkOverflow);
       return () => {
         window.removeEventListener("resize", checkOverflow);
       };
-    }, [checkOverflow]);
-
-    function checkOverflow() {
-      const containerEl = (containerRef as RefObject<HTMLDivElement>).current;
-      const trackEl = trackRef.current;
-
-      if (containerEl && trackEl) {
-        setOverflowing(trackEl.scrollWidth > containerEl.clientWidth);
-        setTrackHeight(trackEl.clientHeight);
-      }
-    }
+    }, [containerRef, skills]);
 
     return (
       <div
@@ -67,5 +65,7 @@ const SkillsCarousel = forwardRef<HTMLDivElement, SkillsCarouselProps>(
     );
   },
 );
+
+SkillsCarousel.displayName = "SkillsCarousel";
 
 export default SkillsCarousel;
