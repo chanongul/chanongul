@@ -20,7 +20,7 @@ const SkillsLink = forwardRef<HTMLDivElement, SkillsLinkProps>(
       return () => {
         window.removeEventListener("resize", updateWidth);
       };
-    }, []);
+    }, [updateWidth]);
 
     return (
       <Link

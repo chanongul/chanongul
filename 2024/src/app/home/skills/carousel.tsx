@@ -16,7 +16,7 @@ const SkillsCarousel = forwardRef<HTMLDivElement, SkillsCarouselProps>(
       return () => {
         window.removeEventListener("resize", checkOverflow);
       };
-    }, []);
+    }, [checkOverflow]);
 
     function checkOverflow() {
       const containerEl = (containerRef as RefObject<HTMLDivElement>).current;

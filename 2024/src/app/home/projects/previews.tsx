@@ -31,7 +31,7 @@ export default function ProjectPreviews({
     if (imageRef.current?.complete) {
       setPending(false);
     }
-  }, []);
+  }, [projects, count]);
 
   function durationFormatter(from: string, to: string) {
     const f = new Date(from).toLocaleDateString("en-US", {
