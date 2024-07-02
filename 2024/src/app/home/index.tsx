@@ -6,6 +6,7 @@ import Statement from "@/app/home/statement";
 import Projects from "@/app/home/projects";
 import Skills from "@/app/home/skills";
 import Experience from "@/app/home/experience";
+import Breakpoints from "../components/breakpoints";
 
 export default function HomePage({
   profileData,
@@ -29,6 +30,8 @@ export default function HomePage({
       <Experience education={educationData} experience={experienceData} />
 
       <Projects projects={projectsData} />
+
+      <Breakpoints />
     </div>
   );
 }
