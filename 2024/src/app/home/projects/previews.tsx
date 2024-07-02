@@ -56,7 +56,7 @@ export default function ProjectPreviews({
       {randomizedProjects.map((project, i) => (
         <Link
           key={i}
-          href={`/projects/${project.name.toLowerCase().replace(/\s/g, "-")}`}
+          href={`/projects/${project.slug}`}
           className="group relative hidden size-full overflow-hidden rounded-xl border border-neutral-200 bg-white text-black transition-all duration-300 md:rounded-2xl landscape:block landscape:rounded-2xl dark:border-neutral-800 dark:bg-charcoal dark:text-white"
         >
           {!isPending && (
