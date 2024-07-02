@@ -28,7 +28,7 @@ export default function SkillCard({ logo, name, prof }: SkillCardProps) {
           />
         </div>
       ) : (
-        <p className="rounded-xl border border-neutral-400 bg-neutral-100 bg-clip-padding px-[1em] py-[0.5em] font-mono text-[0.75em] font-medium leading-none transition-[background-color,border-color] duration-300 md:text-[1.25em] touch:group-active:border-transparent no-touch:group-hover:border-transparent landscape:text-[0.75em] lg:landscape:text-[1.25em] dark:border-neutral-500 dark:bg-black">
+        <p className="rounded-xl border border-neutral-400 bg-neutral-100 bg-clip-padding px-[1em] py-[0.5em] font-mono text-[0.75em] leading-none transition-[background-color,border-color] duration-300 md:text-[1.25em] touch:group-active:border-transparent no-touch:group-hover:border-transparent landscape:text-[0.75em] lg:landscape:text-[1.25em] dark:border-neutral-500 dark:bg-black">
           {name}
         </p>
       )}

@@ -5,7 +5,7 @@ export default function ExperiencePartTile({
   experience,
 }: ExperiencePartTileProps) {
   return (
-    <article className="row-span-1 grid h-full w-full grid-rows-[auto,1fr] overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 text-black transition-colors duration-300 md:rounded-2xl landscape:row-span-2 landscape:rounded-2xl landscape:px-3 lg:landscape:px-6 xl:landscape:row-span-1 dark:border-neutral-800 dark:bg-charcoal dark:text-white">
+    <article className="row-span-1 grid h-full w-full grid-rows-[auto,1fr] overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 text-black transition-colors duration-300 sm:px-6 md:rounded-2xl landscape:row-span-2 landscape:rounded-2xl landscape:px-3 lg:landscape:px-6 xl:landscape:row-span-1 dark:border-neutral-800 dark:bg-charcoal dark:text-white">
       <Link header="Experience" />
 
       <div className="h-full w-full snap-y snap-mandatory overflow-auto">

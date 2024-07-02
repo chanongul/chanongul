@@ -24,7 +24,7 @@ const SkillsLink = forwardRef<HTMLDivElement, SkillsLinkProps>(
     return (
       <Link
         href={`/skills#${type.toLowerCase().split(" ")[0]}`}
-        className="group inline-flex h-full items-center justify-between px-3 pt-2 text-[0.65em] sm:px-6 sm:pt-4 md:text-[0.85em] landscape:px-3 landscape:pt-2 landscape:text-[0.5em] lg:landscape:px-6 lg:landscape:pt-4 lg:landscape:text-[0.85em]"
+        className="group inline-flex h-full items-center justify-between px-3 pt-2 text-[0.65em] sm:px-6 sm:pt-4 md:text-[0.85em] landscape:px-3 landscape:pt-2 landscape:text-[0.5em] lg:landscape:px-6 lg:landscape:pt-2 lg:landscape:text-[0.85em]"
         style={{ width: containerWidth }}
       >
         <h1 className="font-mono font-light opacity-75">{type}</h1>
