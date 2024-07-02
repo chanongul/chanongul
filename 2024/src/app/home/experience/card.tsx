@@ -15,6 +15,16 @@ export default function ExperienceCard({
   const [isH2Overflowing, setH2Overflowing] = useState<boolean>(false);
 
   useEffect(() => {
+    function checkOverflow() {
+      const container = containerRef.current;
+      const h1 = h1Ref.current;
+      const h2 = h2Ref.current;
+
+      if (container && h1 && h2) {
+        setH1Overflowing(h1.clientWidth > container.clientWidth);
+        setH2Overflowing(h2.clientWidth > container.clientWidth);
+      }
+    }
     checkOverflow();
 
     window.addEventListener("resize", checkOverflow);
@@ -22,17 +32,6 @@ export default function ExperienceCard({
       window.removeEventListener("resize", checkOverflow);
     };
   }, []);
-
-  function checkOverflow() {
-    const container = containerRef.current;
-    const h1 = h1Ref.current;
-    const h2 = h2Ref.current;
-
-    if (container && h1 && h2) {
-      setH1Overflowing(h1.clientWidth > container.clientWidth);
-      setH2Overflowing(h2.clientWidth > container.clientWidth);
-    }
-  }
 
   function durationFormatter(from: string, to: string) {
     const f = new Date(from);
