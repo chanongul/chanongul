@@ -94,6 +94,7 @@ declare global {
 
   type Project = {
     name: string;
+    slug: string;
     type: string[];
     preview: string;
     thumbnail: string;
@@ -106,6 +107,7 @@ declare global {
     to: string;
     links: URLWithName[];
     src: URLWithName[];
+    skills: Skill[];
   };
 
   type ProfileSectionProps = Pick<Profile, "illustration">;

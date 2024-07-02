@@ -11,7 +11,6 @@ import {
 } from "@/sanity/lib/query";
 
 export const runtime = "edge";
-export const dynamicParams = false;
 
 export default async function Home() {
   const profileData = await sanityFetch<Profile>({
@@ -35,36 +34,6 @@ export default async function Home() {
   const projectsData = await sanityFetch<Project[]>({
     query: projectsQuery,
   });
-  const skills: SkillsByType = skillTypesData.reduce(
-    (acc, skillType) => ({
-      ...acc,
-      [skillType.name]: skillType.subtypes.reduce(
-        (subAcc, subtype) => ({
-          ...subAcc,
-          [subtype]: skillsData
-            .filter(
-              (skill) =>
-                skill.type === skillType.name && skill.subtype === subtype,
-            )
-            .map((skill) => ({
-              logo: skill.logo,
-              name: skill.name,
-              prof: skill.prof,
-            }))
-            .sort((a, b) => a.name.localeCompare(b.name)),
-        }),
-        skillsData
-          .filter((skill) => skill.type === skillType.name && !skill.subtype)
-          .map((skill) => ({
-            logo: skill.logo,
-            name: skill.name,
-            prof: skill.prof,
-          }))
-          .sort((a, b) => a.name.localeCompare(b.name)),
-      ),
-    }),
-    {},
-  );
 
   return (
     <HomePage

@@ -128,6 +128,17 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      title: "Slug",
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "name",
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "type",
       title: "Type",
       type: "array",

@@ -7,6 +7,8 @@ import {
 } from "@/sanity/lib/query";
 import Image from "next/image";
 
+export const runtime = "edge";
+
 export default async function ProfilePage() {
   const profileData = await sanityFetch<Profile>({
     query: profileQuery,
