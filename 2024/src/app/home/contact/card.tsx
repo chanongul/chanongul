@@ -15,7 +15,7 @@ export default function ContactCard({ contact }: ContactCardProps) {
         src={contact.logo}
         loading={Skeleton}
         fallback={Skeleton}
-        className="flex size-full items-center justify-center [&_svg]:max-w-20 [&_svg]:transition-[transform,color] [&_svg]:duration-500 touch:group-active:[&_svg]:scale-110 touch:group-active:[&_svg]:text-white no-touch:group-hover:[&_svg]:scale-110 no-touch:group-hover:[&_svg]:text-white"
+        className="flex size-full items-center justify-center [&_svg]:max-w-16 [&_svg]:transition-[transform,color] [&_svg]:duration-500 touch:group-active:[&_svg]:scale-110 touch:group-active:[&_svg]:text-white no-touch:group-hover:[&_svg]:scale-110 no-touch:group-hover:[&_svg]:text-white"
       />
     </Link>
   );
