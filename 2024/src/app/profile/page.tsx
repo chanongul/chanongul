@@ -1,17 +1,43 @@
-import Link from "next/link";
+import { sanityFetch } from "@/sanity/lib/client";
+import {
+  contactsQuery,
+  educationQuery,
+  experienceQuery,
+  profileQuery,
+} from "@/sanity/lib/query";
+import Image from "next/image";
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  const profileData = await sanityFetch<Profile>({
+    query: profileQuery,
+  });
+  const contactsData = await sanityFetch<Contact[]>({
+    query: contactsQuery,
+  });
+  const educationData = await sanityFetch<Education[]>({
+    query: educationQuery,
+  });
+  const experienceData = await sanityFetch<Experience[]>({
+    query: experienceQuery,
+  });
+
   return (
-    <section className="size-full h-dvh w-full p-2 font-mono text-black sm:p-3 xl:p-4 landscape:p-2 xl:landscape:p-4 dark:text-white">
-      <article className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-neutral-200 bg-white md:rounded-2xl landscape:rounded-2xl dark:border-neutral-800 dark:bg-charcoal">
-        <h1 className="">Profile Page</h1>
-        <Link
-          href="/"
-          className="touch:active:underline no-touch:hover:underline"
-        >
-          Return Home?
-        </Link>
+    <div className="grid grid-cols-2">
+      <article className="overflow-hidden rounded-2xl">
+        <Image
+          src={profileData.photo}
+          alt="photo"
+          width={1000}
+          height={1000}
+          className="size-full object-cover"
+        />
       </article>
-    </section>
+
+      <article className="">Chanon Gulgattimas</article>
+
+      <article className=""></article>
+
+      <article className=""></article>
+    </div>
   );
 }

@@ -1,9 +1,9 @@
-import Photo from "@/app/home/profile/photo";
+import Illustration from "@/app/home/profile/illustration";
 import Name from "@/app/home/profile/name";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
-export default function ProfileSection({ photo }: ProfileSectionProps) {
+export default function ProfileSection(props: ProfileSectionProps) {
   return (
     <section className="order-1 col-span-2 row-span-4 overflow-hidden rounded-xl border border-neutral-200 bg-white text-black transition-colors duration-300 md:rounded-2xl landscape:order-4 landscape:col-span-4 landscape:row-span-8 landscape:rounded-2xl lg:landscape:row-span-7 dark:border-neutral-800 dark:bg-charcoal dark:text-white">
       <Link
@@ -12,7 +12,7 @@ export default function ProfileSection({ photo }: ProfileSectionProps) {
       >
         <Name />
 
-        <Photo photo={photo} />
+        <Illustration {...props} />
 
         <div className="absolute left-0 top-0 size-full rounded-xl bg-white/50 text-[1.25em] opacity-0 backdrop-blur-sm transition-all duration-300 md:rounded-2xl touch:group-active:opacity-100 no-touch:group-hover:opacity-100 landscape:rounded-2xl dark:bg-black/50">
           <div className="flex size-full flex-col items-center justify-center p-4 text-black opacity-60 landscape:p-1 lg:landscape:p-4 dark:text-white">

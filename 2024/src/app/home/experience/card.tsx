@@ -75,7 +75,7 @@ export default function ExperienceCard({
             </h1>
             <p
               ref={h1Ref}
-              className={`invisible absolute overflow-visible whitespace-nowrap text-[1.15em] font-medium leading-relaxed landscape:leading-none ${isH1Overflowing ? "touch:group-active:visible touch:group-active:static touch:group-active:overflow-visible no-touch:group-hover:visible no-touch:group-hover:static no-touch:group-hover:overflow-visible" : ""}`}
+              className={`invisible absolute overflow-visible whitespace-nowrap text-[1.15em] font-medium leading-none sm:leading-relaxed landscape:leading-none ${isH1Overflowing ? "touch:group-active:visible touch:group-active:static touch:group-active:overflow-visible no-touch:group-hover:visible no-touch:group-hover:static no-touch:group-hover:overflow-visible" : ""}`}
             >
               {h1}
               <span

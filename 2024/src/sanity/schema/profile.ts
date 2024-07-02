@@ -15,6 +15,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "illus",
+      title: "Illustration",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "stmt",
       title: "Personal Statement",
       type: "text",

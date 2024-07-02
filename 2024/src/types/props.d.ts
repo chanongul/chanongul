@@ -1,4 +1,4 @@
-import {
+import type {
   CSSProperties,
   ChangeEvent,
   Dispatch,
@@ -30,6 +30,7 @@ declare global {
 
   type Profile = {
     photo: string;
+    illustration: string;
     statement: string;
     description: string;
   };
@@ -107,9 +108,9 @@ declare global {
     src: URLWithName[];
   };
 
-  type ProfileSectionProps = Pick<Profile, "photo">;
+  type ProfileSectionProps = Pick<Profile, "illustration">;
 
-  type ProfilePhotoProps = Pick<Profile, "photo">;
+  type ProfileIlustrationProps = Pick<Profile, "illustration">;
 
   type ContactSectionProps = {
     contacts: Contact[];
@@ -194,6 +195,8 @@ declare global {
     length: number;
     previewsCount: number;
   };
+
+  type ProjectDetailPageProps = { params: { name: string } };
 }
 
 export {};
