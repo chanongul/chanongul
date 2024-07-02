@@ -35,7 +35,7 @@ const SkillsCarousel = forwardRef<HTMLDivElement, SkillsCarouselProps>(
           className={`flex whitespace-nowrap touch:group-active:[animation-play-state:paused] no-touch:group-hover:[animation-play-state:paused] ${
             isOverflowing ? "animate-scroll" : ""
           }`}
-          style={{ animationDuration: `${skills.length * 10}s` }}
+          style={{ animationDuration: `${skills.length * 5}s` }}
         >
           {skills.map((skill, i) => (
             <div key={i}>
