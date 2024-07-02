@@ -52,7 +52,7 @@ export default function ExperienceCard({
     <div className="group flex min-h-full w-full snap-start flex-col justify-center gap-[0.35em] overflow-hidden font-mono text-[0.85em] lg:text-[1em] 2xl:text-[1.25em] landscape:flex-row landscape:items-center landscape:justify-normal landscape:gap-0">
       <div
         ref={containerRef}
-        className="flex w-full flex-col gap-0 landscape:h-full landscape:max-w-[35%] landscape:justify-center landscape:gap-[0.25em] md:landscape:max-w-[40%]"
+        className="flex w-full flex-col landscape:h-full landscape:max-w-[35%] landscape:justify-center md:landscape:max-w-[40%]"
       >
         <div
           className={`w-full ${isH1Overflowing ? "touch:group-active:overflow-hidden no-touch:group-hover:overflow-hidden" : ""}`}
@@ -64,7 +64,7 @@ export default function ExperienceCard({
             }}
           >
             <h1
-              className={`inline truncate text-[1.15em] font-medium leading-relaxed landscape:leading-none ${isH1Overflowing ? "touch:group-active:overflow-visible no-touch:group-hover:overflow-visible" : ""}`}
+              className={`inline truncate text-[1.15em] font-medium leading-none sm:leading-relaxed landscape:leading-none ${isH1Overflowing ? "touch:group-active:overflow-visible no-touch:group-hover:overflow-visible" : ""}`}
             >
               {h1}
               <span
