@@ -7,10 +7,13 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 
 export default function ResumeLink() {
+  const [isMounted, setMounted] = useState<boolean>(false);
   const [hasClicked, setClicked] = useState<boolean>(false);
   const { resolvedTheme: theme } = useTheme();
 
   useEffect(() => {
+    setMounted(true);
+
     if (localStorage.getItem("resumeClicked") === null) {
       localStorage.setItem("resumeClicked", "false");
     } else {
@@ -18,9 +21,11 @@ export default function ResumeLink() {
     }
   }, []);
 
+  if (!isMounted) return null;
+
   return (
     <Link
-      href={`/docs/${theme || "dark"}/chanongul.pdf`}
+      href={`/docs/${theme}/chanongul.pdf`}
       target="_blank"
       onClick={() => {
         setClicked(true);
