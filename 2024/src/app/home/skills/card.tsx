@@ -10,7 +10,7 @@ export default function SkillCard({ logo, name, prof }: SkillCardProps) {
 
   return (
     <div
-      className={`mx-1 flex items-center justify-center md:mx-1.5 xl:mx-2 ${logo ? "size-8 min-w-8 rounded-[20%] sm:!size-14 sm:!min-w-14 md:!size-16 md:!min-w-16 2xs:size-10 2xs:min-w-10 landscape:!size-6 landscape:!min-w-6 md:landscape:!size-10 md:landscape:!min-w-10 lg:landscape:!size-14 lg:landscape:!min-w-14 xl:landscape:!size-20 xl:landscape:!min-w-20 2xl:landscape:!size-[4vw] 2xl:landscape:!min-w-[4vw]" : "w-max rounded-xl"}`}
+      className={`mx-1 flex items-center justify-center md:mx-1.5 xl:mx-2 ${logo ? "size-8 min-w-8 rounded-[20%] sm:!size-14 sm:!min-w-14 md:!size-16 md:!min-w-16 2xs:size-10 2xs:min-w-10 landscape:!size-6 landscape:!min-w-6 md:landscape:!size-10 md:landscape:!min-w-10 lg:landscape:!size-14 lg:landscape:!min-w-14 xl:landscape:!size-20 xl:landscape:!min-w-20 2xl:landscape:!size-[5vw] 2xl:landscape:!min-w-[5vw]" : "w-max rounded-xl"}`}
       style={{
         background: `conic-gradient(transparent ${360 - (prof / 10) * 360}deg, ${theme === "dark" ? "white" : "black"} ${360 - (prof / 10) * 360}deg)`,
       }}
