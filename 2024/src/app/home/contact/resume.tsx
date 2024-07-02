@@ -21,9 +21,11 @@ export default function ResumeLink() {
     }
   }, []);
 
+  if (!isMounted) return null;
+
   return (
     <Link
-      href={`/docs/${theme || "dark"}/chanongul.pdf`}
+      href={`/docs/${theme}/chanongul.pdf`}
       target="_blank"
       onClick={() => {
         setClicked(true);
@@ -32,7 +34,7 @@ export default function ResumeLink() {
       className="group relative col-span-1 col-start-1 row-span-1 row-start-1 flex aspect-square size-full items-center justify-center rounded-[20%] border border-neutral-200 bg-white transition-colors duration-300 landscape:row-span-4 landscape:hidden dark:border-neutral-800 dark:bg-charcoal"
     >
       {isMounted ? (
-        <BsFileEarmarkPerson className="h-1/2 w-1/2 transition-transform duration-300 touch:group-active:scale-110 no-touch:group-hover:scale-110" />
+        <BsFileEarmarkPerson className="size-[45%] transition-transform duration-300 touch:group-active:scale-110 no-touch:group-hover:scale-110" />
       ) : (
         <div className="flex size-full items-center justify-center p-[15%]">
           <Skeleton />

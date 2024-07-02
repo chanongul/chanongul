@@ -28,8 +28,8 @@ export default function ThemeToggler() {
         <svg
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 fill-current transition-transform duration-500 touch:group-active:scale-110 no-touch:group-hover:scale-110"
           xmlns="http://www.w3.org/2000/svg"
-          width="45%"
-          height="45%"
+          width="40%"
+          height="40%"
           fill="currentColor"
           viewBox="0 0 32 32"
         >
