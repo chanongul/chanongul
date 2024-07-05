@@ -17,7 +17,7 @@ export default function HomePage({
   projectsData,
 }: HomePageProps) {
   return (
-    <div className="relative grid h-dvh w-full select-none grid-cols-[auto,1fr,auto] grid-rows-[repeat(4,1fr),auto,repeat(7,1fr)] gap-2 overflow-hidden p-2 [mask:linear-gradient(to_right,#000c,#000b),url(/images/noise.svg)] sm:gap-3 sm:p-3 xl:gap-4 xl:p-4 landscape:grid-flow-col landscape:grid-cols-10 landscape:grid-rows-[repeat(2,auto),repeat(11,1fr)] landscape:gap-2 landscape:p-2 xl:landscape:gap-4 xl:landscape:p-4">
+    <div className="relative grid h-dvh w-full select-none grid-cols-[auto,1fr,auto] grid-rows-[repeat(4,1fr),auto,repeat(7,1fr)] gap-2 overflow-hidden p-2 [mask:linear-gradient(to_right,#000c,#000b),url(/images/noise.svg)] sm:gap-3 sm:p-3 lg:gap-4 lg:p-4 landscape:grid-flow-col landscape:grid-cols-10 landscape:grid-rows-[repeat(2,auto),repeat(11,1fr)] landscape:gap-2 landscape:p-2 lg:landscape:gap-4 lg:landscape:p-4">
       <Profile illustration={profileData.illustration} />
 
       <Contact contacts={contactData} />

@@ -4,8 +4,14 @@ import {
   educationQuery,
   experienceQuery,
   profileQuery,
+  skillTypesQuery,
+  skillsQuery,
 } from "@/sanity/lib/query";
-import Image from "next/image";
+import About from "@/app/profile/about";
+import Experience from "@/app/profile/experience";
+import Skills from "@/app/profile/skills";
+import Link from "@/app/profile/link";
+import Breakpoints from "../components/breakpoints";
 
 export const runtime = "edge";
 
@@ -22,24 +28,28 @@ export default async function ProfilePage() {
   const experienceData = await sanityFetch<Experience[]>({
     query: experienceQuery,
   });
+  const skillsData = await sanityFetch<Skill[]>({
+    query: skillsQuery,
+  });
+  const skillTypesData = await sanityFetch<SkillType[]>({
+    query: skillTypesQuery,
+  });
 
   return (
-    <div className="grid grid-cols-2">
-      <article className="overflow-hidden rounded-2xl">
-        <Image
-          src={profileData.photo}
-          alt="photo"
-          width={1000}
-          height={1000}
-          className="size-full object-cover"
-        />
-      </article>
+    <div className="flex size-full select-none flex-col justify-center gap-10 px-4 !pb-[5em] font-sans md:px-8 lg:px-12">
+      <About
+        contacts={contactsData}
+        photo={profileData.photo}
+        statement={profileData.statement}
+      />
 
-      <article className="">Chanon Gulgattimas</article>
+      <Experience education={educationData} experience={experienceData} />
 
-      <article className=""></article>
+      <Skills skills={skillsData} skillTypes={skillTypesData} />
 
-      <article className=""></article>
+      <Link />
+
+      <Breakpoints />
     </div>
   );
 }

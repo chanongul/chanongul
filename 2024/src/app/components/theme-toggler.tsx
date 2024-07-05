@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Skeleton from "@/app/home/contact/skeleton";
 
-export default function ThemeToggler() {
+export default function ThemeToggler({ className }: ClassProps) {
   const { setTheme, resolvedTheme: theme } = useTheme();
   const [isMounted, setMounted] = useState<boolean>(false);
 
@@ -20,7 +20,7 @@ export default function ThemeToggler() {
 
   return (
     <button
-      className="group relative col-span-1 col-start-2 row-span-1 row-start-1 aspect-square size-full rounded-[20%] border border-neutral-200 bg-white text-orange-500 transition-colors duration-300 landscape:col-span-1 landscape:col-start-auto landscape:row-span-4 landscape:row-start-auto dark:border-neutral-800 dark:bg-charcoal"
+      className={`group relative aspect-square size-full rounded-[20%] border border-neutral-200 bg-white text-orange-500 transition-colors duration-300 dark:border-neutral-800 dark:bg-charcoal ${className}`}
       type="button"
       onClick={onClick}
     >
@@ -45,11 +45,7 @@ export default function ThemeToggler() {
             <circle cx="16" cy="16" r="15" />
           </g>
         </svg>
-      ) : (
-        <div className="flex size-full items-center justify-center p-[15%]">
-          <Skeleton />
-        </div>
-      )}
+      ) : null}
     </button>
   );
 }

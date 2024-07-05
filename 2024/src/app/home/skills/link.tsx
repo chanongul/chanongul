@@ -2,7 +2,7 @@ import Link from "next/link";
 import { RefObject, forwardRef, useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-const SkillsLink = forwardRef<HTMLDivElement, SkillsLinkProps>(
+const SkillsLink = forwardRef<HTMLDivElement, HomePageSkillsLinkProps>(
   ({ containerRef, type }, _) => {
     const [containerWidth, setContainerWidth] = useState<number>();
 
@@ -23,12 +23,13 @@ const SkillsLink = forwardRef<HTMLDivElement, SkillsLinkProps>(
 
     return (
       <Link
-        href={`/skills#${type.toLowerCase().split(" ")[0]}`}
-        className="group inline-flex h-full items-center justify-between px-3 pt-2 text-[0.65em] sm:px-6 sm:pt-4 md:text-[0.85em] landscape:px-3 landscape:pt-2 landscape:text-[0.5em] lg:landscape:px-6 lg:landscape:pt-2 lg:landscape:text-[0.85em]"
+        href={`/profile#${type.toLowerCase().replace(/\s+/g, "-")}`}
+        className="group inline-flex h-full items-center gap-2 px-3 pt-2 text-[0.65em] sm:px-6 sm:pt-4 md:text-[0.85em] landscape:px-3 landscape:pt-2 landscape:text-[0.5em] lg:landscape:px-6 lg:landscape:pt-2 lg:landscape:text-[0.85em]"
         style={{ width: containerWidth }}
       >
-        <h1 className="font-mono font-light opacity-75">{type}</h1>
-        <FiArrowRight className="size-[1.5em] rounded-full border border-neutral-200 p-0.5 opacity-75 transition-transform duration-300 md:p-1 touch:group-active:-rotate-45 no-touch:group-hover:-rotate-45 dark:border-neutral-600" />
+        <h1 className="min-w-max font-sans font-light opacity-75">{type}</h1>
+        <hr className="w-full opacity-50 transition-opacity duration-300 dark:opacity-20" />
+        <FiArrowRight className="min-h-[1.5em] min-w-[1.5em] rounded-full border border-neutral-200 p-0.5 opacity-75 transition-[transform,border-color] duration-300 md:p-1 touch:group-active:-rotate-45 no-touch:group-hover:-rotate-45 dark:border-neutral-600" />
       </Link>
     );
   },

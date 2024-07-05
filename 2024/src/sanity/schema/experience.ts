@@ -51,6 +51,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "city",
+      title: "City",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "projects",
       title: "Projects",
       type: "array",
@@ -73,34 +79,6 @@ export default defineType({
           },
         }),
       ],
-    }),
-    defineField({
-      name: "skills",
-      title: "Skills",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "reference",
-          to: [{ type: "skill" }],
-          options: {
-            filter: ({ document }) => {
-              const selected = (document.skills as { _ref: string }[])
-                .map((s) => s._ref)
-                .filter(Boolean);
-              return {
-                filter: "type!=$type && !(_id in $selected)",
-                params: {
-                  type: "lang",
-                  selected,
-                },
-              };
-            },
-          },
-        }),
-      ],
-      options: {
-        layout: "grid",
-      },
     }),
   ],
 });

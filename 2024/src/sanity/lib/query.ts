@@ -33,11 +33,8 @@ export const experienceQuery = groq`*[_type=="experience"] | order(from desc){
   title,
   from,
   to,
+  city,
   "description":desc,
-  "skills":skills[]->{
-    "logo":logo.asset->url,
-    name
-  },
   "projects":projects[]->{
     "thumbnail":thumbnail.asset->url,
     "preview":preview.asset->url,
@@ -62,26 +59,25 @@ export const skillTypesQuery = groq`*[_type=="skillType"] | order(name asc){
   "subtypes": *[_type=="skillSubtype" && references(^._id)].name
 }`;
 
-export const projectsQuery = groq`*[_type=="project"] | order(to asc){
+export const projectsQuery = groq`*[_type=="project"] | order(to desc){
   from,
   to,
   name,
   "slug":slug.current,
-  "type":type[]->name,
-  "preview":preview.asset->url,
-  "thumbnail":thumbnail.asset->url,
+  "types":type[]->name,
+  "preview":preview.asset->url
 }`;
 
-export function projectBySlugQuery(slug: string) {
-  return groq`*[_type=="project" && slug.current == ${slug}] | order(to asc){
+export const projectBySlugQuery = groq`*[_type=="project" && slug.current == $slug] | order(to asc){
     figma,
-    video,
+    youtube,
     "images":images[].asset->url,
     from,
     to,
+    process,
     name,
     "slug":slug.current,
-    "type":type[]->name,
+    "types":type[]->name,
     "preview":preview.asset->url,
     "thumbnail":thumbnail.asset->url,
     "description":desc,
@@ -94,9 +90,9 @@ export function projectBySlugQuery(slug: string) {
       name,
       url
     },
-    "skills":skills[]->{
+    "stack":stack[]->{
       "logo":logo.asset->url,
+      prof,
       name
     }
   }[0]`;
-}

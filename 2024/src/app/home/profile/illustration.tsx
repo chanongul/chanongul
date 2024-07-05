@@ -3,7 +3,7 @@ import LoadingIndicator from "@/app/components/loading-indicator";
 
 export default function ProfilePhoto({
   illustration,
-}: ProfileIlustrationProps) {
+}: HomePageProfileIlustrationProps) {
   return (
     <ReactSVG
       src={illustration}

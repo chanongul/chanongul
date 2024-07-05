@@ -6,7 +6,7 @@ import type {
   ReactNode,
   SetStateAction,
 } from "react";
-import { type QueryParams } from "sanity";
+import type { QueryParams } from "sanity";
 
 declare global {
   type ChildrenProps = Readonly<{ children?: ReactNode }>;
@@ -61,8 +61,8 @@ declare global {
     title: string;
     from: string;
     to: string;
+    city: string;
     description: string;
-    skills: Skill[];
     projects: Project[];
   };
 
@@ -83,7 +83,7 @@ declare global {
     [type: string]:
       | {
           [subtype: string]: Skill[];
-        }
+        }[]
       | Skill[];
   };
 
@@ -95,7 +95,7 @@ declare global {
   type Project = {
     name: string;
     slug: string;
-    type: string[];
+    types: string[];
     preview: string;
     thumbnail: string;
     figma?: string;
@@ -107,72 +107,73 @@ declare global {
     to: string;
     links: URLWithName[];
     src: URLWithName[];
-    skills: Skill[];
+    stack: Skill[];
+    process: string;
   };
 
-  type ProfileSectionProps = Pick<Profile, "illustration">;
+  type HomePageProfileSectionProps = Pick<Profile, "illustration">;
 
-  type ProfileIlustrationProps = Pick<Profile, "illustration">;
+  type HomePageProfileIlustrationProps = Pick<Profile, "illustration">;
 
-  type ContactSectionProps = {
+  type HomePageContactSectionProps = {
     contacts: Contact[];
   };
 
-  type ContactCardProps = {
+  type HomePageContactCardProps = {
     contact: Contact;
   };
 
-  type StatementSectionProps = Pick<Profile, "statement">;
+  type HomePageStatementSectionProps = Pick<Profile, "statement">;
 
-  type ExperienceSectionProps = {
+  type HomePageExperienceSectionProps = {
     education: Education[];
     experience: Experience[];
   };
 
-  type ExperienceLinkProps = {
+  type HomePageExperienceLinkProps = {
     header: string;
   };
 
-  type ExperienceTileProps = {
+  type HomePageExperienceTileProps = {
     header: string;
     children: ReactNode;
     className?: string;
     style?: CSSProperties;
   };
 
-  type ExperiencePartTileProps = {
+  type HomePageExperiencePartTileProps = {
     experience: Experience[];
   };
 
-  type EducationPartTileProps = {
+  type HomePageEducationPartTileProps = {
     education: Education[];
   };
 
-  type ExperienceCardProps = {
+  type HomePageExperienceCardProps = {
     h1: string;
     h2: string;
     from: string;
     to: string;
   };
 
-  type SkillsSectionProps = {
+  type HomePageSkillsSectionProps = {
     skills: Skill[];
     skillTypes: SkillType[];
   };
 
-  type SkillsTileProps = {
+  type HomePageSkillsTileProps = {
     type: string;
     skills: Skill[];
     index: number;
     typesCount: number;
   };
 
-  type SkillsLinkProps = {
+  type HomePageSkillsLinkProps = {
     containerRef: RefObject<HTMLElement>;
     type: string;
   };
 
-  type SkillsCarouselProps = {
+  type HomePageSkillsCarouselProps = {
     containerRef: ForwardedRef<HTMLDivElement>;
     skills: Skill[];
   };
@@ -181,24 +182,129 @@ declare global {
     logo: string;
     name: string;
     prof: number;
+    type?: string;
   };
 
-  type ProjectsProps = {
+  type HomePageProjectsSectionProps = {
     projects: Project[];
   };
 
-  type ProjectPreviewsProps = {
+  type HomePageProjectPreviewsProps = {
     projects: Project[];
     count: number;
   };
 
-  type ProjectLinkProps = {
+  type HomePageProjectLinkProps = {
     startYear: number;
     length: number;
     previewsCount: number;
   };
 
+  type ProfilePageAboutSectionProps = {
+    statement: string;
+    contacts: Contact[];
+    photo: string;
+  };
+
+  type ProfilePageExperienceSectionProps = {
+    experience: Experience[];
+    education: Education[];
+  };
+
+  type ProfilePageExperienceCardProps = {
+    experience: Education | Experience;
+    index: number;
+    length: number;
+  };
+
+  type ProfilePageExperienceEducationCardProps = Education & {
+    index: number;
+  };
+
+  type ProfilePageExperienceExperienceCardProps = Experience & {
+    index: number;
+  };
+
   type ProjectDetailPageProps = { params: { name: string } };
+
+  type ProfilePageStatementProps = Pick<Profile, "statement">;
+
+  type ProfilePageContactProps = {
+    contacts: Contact[];
+  };
+
+  type ProfilePageEmailProps = { email: string };
+
+  type ProfilePagePhotoProps = Pick<Profile, "photo">;
+
+  type ProfilePageSkillsSectionProps = {
+    skills: Skill[];
+    skillTypes: SkillType[];
+  };
+
+  type ProfilePageSkillWithNoSubtypesProps = {
+    type: string;
+    skills: Skill[];
+  };
+
+  type ProfilePageSkillWithSubtypesProps = {
+    type: string;
+    subtypes: {
+      [subtype: string]: Skill[];
+    }[];
+  };
+
+  type ProjectsPageCatalogProps = {
+    projects: Project[];
+  };
+
+  type ProjectsPageHeaderProps = {
+    f: [
+      null | "Development" | "Design",
+      Dispatch<SetStateAction<null | "Development" | "Design">>,
+    ];
+  };
+
+  type ProjectDetailPageHeaderProps = {
+    name: string;
+    types: string[];
+    links: URLWithName[];
+  };
+
+  type ProjectDetailPageLinksProps = {
+    links: URLWithName[];
+  };
+
+  type ProjectDetailPageStackProps = {
+    stack: Skill[];
+  };
+
+  type ProjectDetailPageProcessProps = {
+    process: string;
+  };
+
+  type ProjectDetailPageMediaProps = {
+    figma?: string;
+    youtube?: string;
+    images?: string[];
+    preview: string;
+  };
+
+  type ProjectDetailPageMediaSourceProps = {
+    src: string | string[];
+  };
+
+  type ProjectDetailPageInfoProps = {
+    from: string;
+    to: string;
+    contribution: string;
+    src: URLWithName[];
+    preview: string;
+  };
+
+  type ProjectDetailPageAboutProps = {
+    description: string;
+  };
 }
 
 export {};

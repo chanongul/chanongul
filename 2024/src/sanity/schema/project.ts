@@ -29,7 +29,7 @@ export default defineType({
       name: "figma",
       title: "Figma Link",
       type: "url",
-      hidden: ({ document }) => !!document?.video || !!document?.images,
+      hidden: ({ document }) => !!document?.youtube || !!document?.images,
       validation: (Rule) =>
         Rule.custom((value) => {
           const regex = /^https?:\/\/www\.figma\.com\//;
@@ -40,8 +40,8 @@ export default defineType({
         }),
     }),
     defineField({
-      name: "video",
-      title: "Video",
+      name: "youtube",
+      title: "Youtube",
       type: "url",
       hidden: ({ document }) => !!document?.figma || !!document?.images,
       validation: (Rule) =>
@@ -57,7 +57,7 @@ export default defineType({
       name: "images",
       title: "Images",
       type: "array",
-      hidden: ({ document }) => !!document?.figma || !!document?.video,
+      hidden: ({ document }) => !!document?.figma || !!document?.youtube,
       of: [
         defineArrayMember({
           type: "image",
@@ -101,7 +101,7 @@ export default defineType({
     }),
     defineField({
       name: "src",
-      title: "Source Codes",
+      title: "Source Materials",
       type: "array",
       of: [
         defineArrayMember({
@@ -180,8 +180,8 @@ export default defineType({
       hidden: ({ document }) => !!document?.solo,
     }),
     defineField({
-      name: "skills",
-      title: "Skills",
+      name: "stack",
+      title: "Stack",
       type: "array",
       of: [
         defineArrayMember({
@@ -189,7 +189,7 @@ export default defineType({
           to: [{ type: "skill" }],
           options: {
             filter: ({ document }) => {
-              const selected = (document.skills as { _ref: string }[])
+              const selected = (document.stack as { _ref: string }[])
                 .map((s) => s._ref)
                 .filter(Boolean);
               const skillTypes = ["Languages", "Soft Skills"];

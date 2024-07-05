@@ -1,7 +1,9 @@
 import Link from "@/app/home/experience/link";
 import Card from "@/app/home/experience/card";
 
-export default function EducationTile({ education }: EducationPartTileProps) {
+export default function EducationTile({
+  education,
+}: HomePageEducationPartTileProps) {
   return (
     <article className="grid h-full w-full grid-rows-[auto,1fr] overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 text-black transition-colors duration-300 sm:px-6 md:rounded-2xl landscape:hidden landscape:rounded-2xl landscape:px-3 lg:landscape:px-6 xl:landscape:grid dark:border-neutral-800 dark:bg-charcoal dark:text-white">
       <Link header="Education" />

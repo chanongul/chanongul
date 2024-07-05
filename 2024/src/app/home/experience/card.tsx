@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { durationFormatter } from "@/app/utils/duration-formatter";
 
 export default function ExperienceCard({
   h1,
   h2,
   from,
   to,
-}: ExperienceCardProps) {
+}: HomePageExperienceCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const h1Ref = useRef<HTMLParagraphElement>(null);
   const h2Ref = useRef<HTMLParagraphElement>(null);
@@ -33,23 +34,8 @@ export default function ExperienceCard({
     };
   }, []);
 
-  function durationFormatter(from: string, to: string) {
-    const f = new Date(from);
-    const t = new Date(to);
-
-    const diffInMonths =
-      (t.getFullYear() - f.getFullYear()) * 12 + (t.getMonth() - f.getMonth());
-    const formatYear = (date: Date) => date.getFullYear();
-    const formatMonthYear = (date: Date) =>
-      date.toLocaleString("default", { month: "short", year: "numeric" });
-
-    return diffInMonths > 12
-      ? `${formatYear(f)} - ${formatYear(t)}`
-      : `${formatMonthYear(f)} - ${formatMonthYear(t)}`;
-  }
-
   return (
-    <div className="group flex min-h-full w-full snap-start flex-col justify-center gap-[0.35em] overflow-hidden font-mono text-[0.85em] lg:text-[1em] 2xl:text-[1.25em] landscape:flex-row landscape:items-center landscape:justify-normal landscape:gap-0">
+    <div className="group flex min-h-full w-full snap-start flex-col justify-center gap-[0.35em] overflow-hidden font-sans text-[0.85em] lg:text-[1em] 2xl:text-[1.25em] landscape:flex-row landscape:items-center landscape:justify-normal landscape:gap-0">
       <div
         ref={containerRef}
         className="flex w-full flex-col landscape:h-full landscape:max-w-[35%] landscape:justify-center md:landscape:max-w-[40%]"

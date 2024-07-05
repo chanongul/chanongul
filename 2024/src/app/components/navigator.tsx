@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { TbLayoutBoard, TbUserCircle, TbBulb, TbFolders } from "react-icons/tb";
+import { TbLayoutBoard } from "react-icons/tb";
+import ThemeToggler from "./theme-toggler";
 
 export default function Navigator() {
   const pathname = usePathname();
@@ -11,31 +11,14 @@ export default function Navigator() {
   if (pathname === "/") return null;
 
   return (
-    <nav className="absolute bottom-4 my-1 flex gap-2">
+    <nav className="fixed bottom-[2%] left-1/2 z-50 my-1 flex -translate-x-1/2 -space-x-[0.5em] rounded-2xl bg-white/50 p-[0.15em] backdrop-blur-md transition-colors duration-300 dark:bg-charcoal/50">
       <Link
         href="/"
-        className="size-[3em] rounded-[20%] border border-neutral-200 bg-white p-[0.75em] dark:border-neutral-800 dark:bg-charcoal touch:active:[&>svg]:scale-110 no-touch:hover:[&>svg]:scale-110"
+        className="group size-[3em] rounded-[15%] p-[0.55em] text-black transition-colors duration-300 dark:text-white [&>svg]:!stroke-[1.5px]"
       >
-        <TbLayoutBoard className="size-full !stroke-1 transition-transform duration-300" />
+        <TbLayoutBoard className="size-full transition-transform duration-300 touch:group-active:scale-110 no-touch:group-hover:scale-110" />
       </Link>
-      <Link
-        href="/profile"
-        className={`size-[3em] rounded-[20%] border border-neutral-200 bg-white p-[0.5em] dark:border-neutral-800 dark:bg-charcoal ${pathname.split("/")[1] === "profile" ? "bg-black text-white dark:bg-white dark:text-black [&>svg]:!stroke-[1.5px]" : "touch:active:[&>svg]:scale-110 no-touch:hover:[&>svg]:scale-110"}`}
-      >
-        <TbUserCircle className="size-full !stroke-1 transition-transform duration-300" />
-      </Link>
-      <Link
-        href="/skills"
-        className={`size-[3em] rounded-[20%] border border-neutral-200 bg-white p-[0.5em] dark:border-neutral-800 dark:bg-charcoal ${pathname.split("/")[1] === "skills" ? "bg-black text-white dark:bg-white dark:text-black [&>svg]:!stroke-[1.5px]" : "touch:active:[&>svg]:scale-110 no-touch:hover:[&>svg]:scale-110"}`}
-      >
-        <TbBulb className="size-full !stroke-1 transition-transform duration-300" />
-      </Link>
-      <Link
-        href="/projects"
-        className={`size-[3em] rounded-[20%] border border-neutral-200 bg-white p-[0.5em] dark:border-neutral-800 dark:bg-charcoal ${pathname.split("/")[1] === "projects" ? "bg-black text-white dark:bg-white dark:text-black [&>svg]:!stroke-[1.5px]" : "touch:active:[&>svg]:scale-110 no-touch:hover:[&>svg]:scale-110"}`}
-      >
-        <TbFolders className="size-full !stroke-1 transition-transform duration-300" />
-      </Link>
+      <ThemeToggler className="!size-[3em] !border-none !bg-transparent [&>svg]:!size-1/2" />
     </nav>
   );
 }

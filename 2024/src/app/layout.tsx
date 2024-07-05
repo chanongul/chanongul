@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Fira_Code, Platypi, Borel } from "next/font/google";
+import LocalFont from "next/font/local";
 import ThemeProvider from "@/app/theme-provider";
 import "@/app/global.css";
 

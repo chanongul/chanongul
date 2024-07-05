@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, forwardRef, RefObject } from "react";
 import Card from "@/app/home/skills/card";
 
-const SkillsCarousel = forwardRef<HTMLDivElement, SkillsCarouselProps>(
+const SkillsCarousel = forwardRef<HTMLDivElement, HomePageSkillsCarouselProps>(
   ({ containerRef, skills }, _) => {
     const [isOverflowing, setOverflowing] = useState<boolean>();
     const [trackHeight, setTrackHeight] = useState<number>();
