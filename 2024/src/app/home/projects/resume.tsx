@@ -3,13 +3,11 @@
 import { useEffect, useState } from "react";
 import { BsFileEarmarkPerson } from "react-icons/bs";
 import { FiArrowRight } from "react-icons/fi";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 
-export default function ResumeLink() {
+export default function ResumeLink({ resume }: ResumeProps) {
   const [isMounted, setMounted] = useState<boolean>(false);
   const [hasClicked, setClicked] = useState<boolean>(false);
-  const { resolvedTheme: theme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -25,7 +23,7 @@ export default function ResumeLink() {
 
   return (
     <Link
-      href={`/docs/${theme}/chanongul.pdf`}
+      href={resume}
       target="_blank"
       onClick={() => {
         setClicked(true);

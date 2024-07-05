@@ -7,6 +7,7 @@ export default function ProfilePageAboutSection({
   contacts,
   photo,
   statement,
+  resume,
 }: ProfilePageAboutSectionProps) {
   return (
     <section
@@ -19,7 +20,7 @@ export default function ProfilePageAboutSection({
 
       <Photo photo={photo} />
 
-      <Contact contacts={contacts} />
+      <Contact contacts={contacts} resume={resume} />
     </section>
   );
 }

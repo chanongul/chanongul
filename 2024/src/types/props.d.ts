@@ -33,6 +33,7 @@ declare global {
     illustration: string;
     statement: string;
     description: string;
+    resume: string;
   };
 
   type Contact = {
@@ -111,12 +112,17 @@ declare global {
     process: string;
   };
 
+  type ResumeProps = {
+    resume: string;
+  };
+
   type HomePageProfileSectionProps = Pick<Profile, "illustration">;
 
   type HomePageProfileIlustrationProps = Pick<Profile, "illustration">;
 
   type HomePageContactSectionProps = {
     contacts: Contact[];
+    resume: string;
   };
 
   type HomePageContactCardProps = {
@@ -187,6 +193,7 @@ declare global {
 
   type HomePageProjectsSectionProps = {
     projects: Project[];
+    resume: string;
   };
 
   type HomePageProjectPreviewsProps = {
@@ -198,12 +205,14 @@ declare global {
     startYear: number;
     length: number;
     previewsCount: number;
+    resume: string;
   };
 
   type ProfilePageAboutSectionProps = {
     statement: string;
     contacts: Contact[];
     photo: string;
+    resume: string;
   };
 
   type ProfilePageExperienceSectionProps = {
@@ -231,9 +240,13 @@ declare global {
 
   type ProfilePageContactProps = {
     contacts: Contact[];
+    resume: string;
   };
 
-  type ProfilePageEmailProps = { email: string };
+  type ProfilePageEmailProps = {
+    email: string;
+    resume: string;
+  };
 
   type ProfilePagePhotoProps = Pick<Profile, "photo">;
 

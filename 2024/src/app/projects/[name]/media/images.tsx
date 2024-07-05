@@ -14,9 +14,9 @@ export default function ProjectDetailPageImages({
       <button
         type="button"
         onClick={() => setCur((cur - 1 + images.length) % images.length)}
-        className="group absolute left-0 top-0 z-10 h-full w-[10%]"
+        className="group absolute left-0 top-0 z-10 h-full w-1/2"
       >
-        <FiChevronLeft className="absolute left-[10%] top-1/2 h-auto w-full -translate-y-1/2 text-white opacity-0 transition-opacity duration-300 sm:w-1/3 touch:group-active:opacity-100 no-touch:group-hover:opacity-100" />
+        <FiChevronLeft className="absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2 text-black/25 opacity-0 transition-opacity duration-300 sm:w-1/3 touch:group-active:opacity-100 no-touch:group-hover:opacity-100" />
       </button>
       {(images as string[]).map((image, i) => (
         <Image
@@ -32,9 +32,9 @@ export default function ProjectDetailPageImages({
       <button
         type="button"
         onClick={() => setCur((cur + 1) % images.length)}
-        className="group absolute right-0 top-0 z-10 h-full w-[10%]"
+        className="group absolute right-0 top-0 z-10 h-full w-1/2"
       >
-        <FiChevronRight className="absolute right-[10%] top-1/2 h-auto w-full -translate-y-1/2 text-white opacity-0 transition-opacity duration-300 sm:w-1/3 touch:group-active:opacity-100 no-touch:group-hover:opacity-100" />
+        <FiChevronRight className="absolute right-1/2 top-1/2 h-auto w-full -translate-y-1/2 translate-x-1/2 text-black/25 opacity-0 transition-opacity duration-300 sm:w-1/3 touch:group-active:opacity-100 no-touch:group-hover:opacity-100" />
       </button>
       <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1 rounded-full bg-white/25 p-1.5 backdrop-blur-md sm:p-2">
         {(images as string[]).map((_, i) => (

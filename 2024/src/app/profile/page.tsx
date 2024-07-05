@@ -41,6 +41,7 @@ export default async function ProfilePage() {
         contacts={contactsData}
         photo={profileData.photo}
         statement={profileData.statement}
+        resume={profileData.resume}
       />
 
       <Experience education={educationData} experience={experienceData} />

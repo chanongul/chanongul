@@ -4,10 +4,11 @@ import Resume from "@/app/home/contact/resume";
 
 export default function ContactSection({
   contacts,
+  resume,
 }: HomePageContactSectionProps) {
   return (
     <section className="order-2 col-span-1 row-span-4 grid size-full grid-flow-col grid-cols-2 grid-rows-4 gap-2 sm:gap-3 lg:gap-3.5 xl:gap-4 landscape:col-span-4 landscape:row-span-1 landscape:grid-flow-row landscape:!grid-cols-7 landscape:gap-2 lg:landscape:gap-3.5 xl:landscape:gap-4">
-      <Resume />
+      <Resume resume={resume} />
 
       {contacts.map((contact, i) => (
         <Card key={i} {...contact} />

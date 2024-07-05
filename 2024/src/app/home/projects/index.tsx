@@ -3,6 +3,7 @@ import Links from "@/app/home/projects/links";
 
 export default function ProjectsSection({
   projects,
+  resume,
 }: HomePageProjectsSectionProps) {
   const previewsCount = 3;
 
@@ -14,6 +15,7 @@ export default function ProjectsSection({
         startYear={new Date(projects[projects.length - 1].from).getFullYear()}
         length={projects.length}
         previewsCount={previewsCount}
+        resume={resume}
       />
     </section>
   );

@@ -3,6 +3,7 @@ import { groq } from "next-sanity";
 export const profileQuery = groq`*[_type=="profile"]{
   "photo":photo.asset->url,
   "illustration":illus.asset->url,
+  "resume":resume.asset->url,
   "statement":stmt,
   "description":desc
 }[0]`;

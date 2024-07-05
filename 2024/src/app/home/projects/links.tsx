@@ -9,6 +9,7 @@ export default function ProjectLinks({
   startYear,
   length,
   previewsCount,
+  resume,
 }: HomePageProjectLinkProps) {
   const [isMounted, setMounted] = useState<boolean>(false);
 
@@ -51,7 +52,7 @@ export default function ProjectLinks({
         )}
       </Link>
 
-      <Resume />
+      <Resume resume={resume} />
     </article>
   );
 }
