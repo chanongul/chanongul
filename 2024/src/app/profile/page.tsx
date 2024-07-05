@@ -11,7 +11,6 @@ import About from "@/app/profile/about";
 import Experience from "@/app/profile/experience";
 import Skills from "@/app/profile/skills";
 import Link from "@/app/profile/link";
-import Breakpoints from "../components/breakpoints";
 
 export const runtime = "edge";
 
@@ -49,8 +48,6 @@ export default async function ProfilePage() {
       <Skills skills={skillsData} skillTypes={skillTypesData} />
 
       <Link />
-
-      <Breakpoints />
     </div>
   );
 }
