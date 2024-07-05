@@ -65,6 +65,7 @@ export default function ProjectDetailPageInfo({
           width={1000}
           height={1000}
           className="rounded-2xl"
+          priority
         />
       </div>
     </section>
