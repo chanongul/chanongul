@@ -13,7 +13,7 @@ export default function ProfilePageExperienceSection({
       </h1>
 
       {experience.map((ex, i) => (
-        <Card experience={ex} length={experience.length} index={i} />
+        <Card key={i} experience={ex} length={experience.length} index={i} />
       ))}
     </section>
   );

@@ -64,7 +64,6 @@ export default function ProjectDetailPageInfo({
           alt="Placeholder"
           width={1000}
           height={1000}
-          layout="responsive"
           className="rounded-2xl"
         />
       </div>
