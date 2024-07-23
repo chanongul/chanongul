@@ -50,7 +50,7 @@ export default function ExperienceCard({
             }}
           >
             <h1
-              className={`inline truncate text-[1.15em] font-medium leading-none sm:leading-relaxed landscape:leading-none ${isH1Overflowing ? "touch:group-active:overflow-visible no-touch:group-hover:overflow-visible" : ""}`}
+              className={`inline truncate text-[1.15em] font-medium ${isH1Overflowing ? "touch:group-active:overflow-visible no-touch:group-hover:overflow-visible" : ""}`}
             >
               {h1}
               <span
@@ -61,7 +61,7 @@ export default function ExperienceCard({
             </h1>
             <p
               ref={h1Ref}
-              className={`invisible absolute overflow-visible whitespace-nowrap text-[1.15em] font-medium leading-none sm:leading-relaxed landscape:leading-none ${isH1Overflowing ? "touch:group-active:visible touch:group-active:static touch:group-active:overflow-visible no-touch:group-hover:visible no-touch:group-hover:static no-touch:group-hover:overflow-visible" : ""}`}
+              className={`invisible absolute overflow-visible whitespace-nowrap text-[1.15em] font-medium ${isH1Overflowing ? "touch:group-active:visible touch:group-active:static touch:group-active:overflow-visible no-touch:group-hover:visible no-touch:group-hover:static no-touch:group-hover:overflow-visible" : ""}`}
             >
               {h1}
               <span
@@ -80,7 +80,7 @@ export default function ExperienceCard({
             style={{ animationDuration: `${h2.length / 5}s` }}
           >
             <h2
-              className={`inline truncate text-[0.85em] font-light landscape:leading-none ${isH2Overflowing ? "touch:group-active:overflow-visible no-touch:group-hover:overflow-visible" : ""}`}
+              className={`inline truncate text-[0.85em] font-light ${isH2Overflowing ? "touch:group-active:overflow-visible no-touch:group-hover:overflow-visible" : ""}`}
             >
               {h2}
               <span
@@ -91,7 +91,7 @@ export default function ExperienceCard({
             </h2>
             <p
               ref={h2Ref}
-              className={`invisible absolute overflow-visible whitespace-nowrap text-[0.85em] font-light landscape:leading-none ${isH2Overflowing ? "touch:group-active:visible touch:group-active:static touch:group-active:overflow-visible no-touch:group-hover:visible no-touch:group-hover:static no-touch:group-hover:overflow-visible" : ""}`}
+              className={`invisible absolute overflow-visible whitespace-nowrap text-[0.85em] font-light ${isH2Overflowing ? "touch:group-active:visible touch:group-active:static touch:group-active:overflow-visible no-touch:group-hover:visible no-touch:group-hover:static no-touch:group-hover:overflow-visible" : ""}`}
             >
               {h2}
               <span
@@ -105,7 +105,7 @@ export default function ExperienceCard({
       </div>
       <hr className="ml-[5%] hidden w-full opacity-25 landscape:block" />
       <hr className="w-full opacity-25 landscape:mr-[5%] landscape:block" />
-      <p className="text-right text-[0.85em] font-light leading-none opacity-75 landscape:min-w-max landscape:flex-1">
+      <p className="text-right text-[0.85em] font-light opacity-75 landscape:min-w-max landscape:flex-1">
         {durationFormatter(from, to)}
       </p>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function ProjectDetailPageImages({
