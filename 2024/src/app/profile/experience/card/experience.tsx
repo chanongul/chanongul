@@ -11,7 +11,18 @@ export default function experience({
   return (
     <>
       <p className="text-[1.25em] font-medium leading-tight">{title}</p>
-      <p className="text-[0.95em]">{description}</p>
+      <ul
+        className={`flex list-outside flex-col gap-1.5 text-[0.95em] ${description.split(`\n`).length > 1 ? "list-disc" : ""}`}
+      >
+        {description.split("\n").map((d, i) => (
+          <li
+            key={i}
+            className={`whitespace-pre-wrap ${description.split(`\n`).length > 1 ? "ml-5" : ""}`}
+          >
+            {d}
+          </li>
+        ))}
+      </ul>
       <div className="flex gap-2">
         <SlLocationPin
           className={`mt-1 size-[1.5em] min-w-[1.5em] ${index % 2 === 1 ? "order-last" : ""}`}

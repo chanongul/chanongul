@@ -36,7 +36,7 @@ export default function ProjectDetailPageImages({
       >
         <FiChevronRight className="absolute right-1/2 top-1/2 h-auto w-full -translate-y-1/2 translate-x-1/2 text-black/25 opacity-0 transition-opacity duration-300 sm:w-1/3 touch:group-active:opacity-100 no-touch:group-hover:opacity-100" />
       </button>
-      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1 rounded-full bg-white/25 p-1.5 backdrop-blur-md sm:p-2">
+      <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1 rounded-full bg-white/25 p-1.5 backdrop-blur-md sm:p-2">
         {(images as string[]).map((_, i) => (
           <button
             key={i}

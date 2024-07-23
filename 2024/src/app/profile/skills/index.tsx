@@ -48,7 +48,7 @@ export default function ProfilePageSkillsSection({
   }, [skillsData, skillTypes]);
 
   return (
-    <section className="grid size-full grid-cols-6 gap-4">
+    <section className="grid size-full grid-cols-6 gap-4 sm:text-[1.15em]">
       {Object.entries(skills).map(([type, subtypes], i) => {
         if (Array.isArray(subtypes)) {
           return (

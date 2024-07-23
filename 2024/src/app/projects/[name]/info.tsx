@@ -28,9 +28,18 @@ export default function ProjectDetailPageInfo({
               <p className="min-w-max text-[0.85em] font-medium opacity-50">
                 Contribution
               </p>
-              <p className="whitespace-pre-wrap text-[1em] font-light sm:text-[1.15em]">
-                {contribution}
-              </p>
+              <ul
+                className={`flex list-outside flex-col gap-2 text-[0.95em] ${contribution.split(`\n`).length > 1 ? "list-disc" : ""}`}
+              >
+                {contribution.split("\n").map((c, i) => (
+                  <li
+                    key={i}
+                    className={`whitespace-pre-wrap text-[1em] font-light leading-snug sm:text-[1.15em] ${contribution.split(`\n`).length > 1 ? "ml-5" : ""}`}
+                  >
+                    {c}
+                  </li>
+                ))}
+              </ul>
             </div>
           </>
         )}
@@ -47,7 +56,7 @@ export default function ProjectDetailPageInfo({
                   <Link
                     key={i}
                     href={s.url}
-                    className="rounded-full bg-neutral-300 px-3 py-1 text-[0.85em] font-light transition-colors duration-300 sm:text-[1em] dark:bg-neutral-800"
+                    className="rounded-full bg-neutral-300 px-3 py-1 text-[0.85em] font-light transition-transform duration-300 sm:text-[1em] touch:active:scale-105 no-touch:hover:scale-105 dark:bg-neutral-800"
                   >
                     {s.name}
                   </Link>

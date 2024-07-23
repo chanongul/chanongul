@@ -11,7 +11,7 @@ export default function Navigator() {
   if (pathname === "/") return null;
 
   return (
-    <nav className="fixed bottom-[2%] left-1/2 z-50 my-1 flex -translate-x-1/2 -space-x-[0.5em] rounded-2xl bg-white/50 p-[0.15em] backdrop-blur-md transition-colors duration-300 dark:bg-charcoal/50">
+    <nav className="fixed bottom-[2%] left-1/2 z-50 my-1 flex -translate-x-1/2 -space-x-[0.5em] rounded-2xl bg-white/50 p-[0.15em] backdrop-blur-lg transition-colors duration-300 dark:bg-charcoal/50">
       <Link
         href="/"
         className="group size-[3em] rounded-[15%] p-[0.55em] text-black transition-colors duration-300 dark:text-white [&>svg]:!stroke-[1.5px]"

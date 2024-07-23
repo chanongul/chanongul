@@ -16,7 +16,7 @@ export default function ProjectDetailPageHeader({
           {types.map((type, i) => (
             <p
               key={i}
-              className="w-max rounded-full bg-neutral-300 px-5 py-2 text-[0.35em] text-black/70 transition-colors duration-300 dark:bg-neutral-800 dark:text-white/70"
+              className="w-max rounded-full bg-neutral-300 px-3 py-1 text-[0.35em] text-black/70 transition-colors duration-300 dark:bg-neutral-800 dark:text-white/70"
             >
               {type}
             </p>
