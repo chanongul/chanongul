@@ -16,7 +16,7 @@ export default function AdminPage() {
         "_blank",
         "noopener,noreferrer",
       );
-      router.replace("/");
+      router.back();
     }
   }, [isMounted]);
 
