@@ -10,7 +10,7 @@ export default function ProjectDetailPageInfo({
   src,
 }: ProjectDetailPageInfoProps) {
   return (
-    <section className="grid size-full grid-cols-[1fr,3fr] gap-4 rounded-2xl text-[1em] sm:text-[1.05em]">
+    <section className="grid size-full grid-cols-[1fr,2fr] gap-4 rounded-2xl text-[1em] sm:text-[1.05em]">
       <div className="col-span-full flex size-full flex-col gap-6 rounded-2xl border border-neutral-200 bg-white p-6 transition-colors duration-300 sm:col-span-1 dark:border-neutral-800 dark:bg-charcoal dark:text-white">
         <div className="flex flex-col gap-1">
           <p className="min-w-max text-[0.85em] font-medium opacity-50">
@@ -67,13 +67,13 @@ export default function ProjectDetailPageInfo({
         )}
       </div>
 
-      <div className="col-span-full size-full border border-neutral-300 transition-colors duration-300 sm:col-span-1 dark:border-neutral-800">
+      <div className="col-span-full size-full overflow-hidden rounded-2xl border border-neutral-300 transition-colors duration-300 sm:col-span-1 dark:border-neutral-800">
         <Image
           src={preview}
           alt="Placeholder"
           width={1000}
           height={1000}
-          className="rounded-2xl"
+          className="size-full object-cover"
           priority
         />
       </div>
