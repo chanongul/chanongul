@@ -6,6 +6,7 @@ import About from "@/app/projects/[name]/about";
 import Info from "@/app/projects/[name]/info";
 import Stack from "@/app/projects/[name]/stack";
 import Link from "@/app/projects/[name]/link";
+import NotFound from "@/app/not-found";
 
 export const runtime = "edge";
 export const dynamicParams = false;
@@ -21,7 +22,7 @@ export default async function ProjectDetail({
     },
   });
 
-  console.log(projectData);
+  if (!projectData) return <NotFound />;
 
   return (
     <div className="grid size-full select-none grid-cols-1 justify-center gap-4 px-4 !pb-[5em] font-sans sm:gap-10 md:px-8 lg:px-16 xl:px-24">
