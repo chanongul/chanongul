@@ -4,8 +4,7 @@ import {
   educationQuery,
   experienceQuery,
   profileQuery,
-  skillTypesQuery,
-  skillsQuery,
+  skillsByTypeQuery,
 } from "@/sanity/lib/query";
 import About from "@/app/profile/about";
 import Experience from "@/app/profile/experience";
@@ -27,11 +26,9 @@ export default async function ProfilePage() {
   const experienceData = await sanityFetch<Experience[]>({
     query: experienceQuery,
   });
-  const skillsData = await sanityFetch<Skill[]>({
-    query: skillsQuery,
-  });
-  const skillTypesData = await sanityFetch<SkillType[]>({
-    query: skillTypesQuery,
+  const skillsData = await sanityFetch<SkillsByType[]>({
+    query: skillsByTypeQuery,
+    qParams: { minProf: 0 },
   });
 
   return (
@@ -45,7 +42,7 @@ export default async function ProfilePage() {
 
       <Experience education={educationData} experience={experienceData} />
 
-      <Skills skills={skillsData} skillTypes={skillTypesData} />
+      <Skills skills={skillsData} />
 
       <Link />
     </div>

@@ -10,10 +10,7 @@ export default function ProfilePageAboutSection({
   resume,
 }: ProfilePageAboutSectionProps) {
   return (
-    <section
-      id="about"
-      className="grid size-full grid-cols-10 grid-rows-[repeat(2,auto)] gap-4 text-[1em]"
-    >
+    <section className="grid size-full grid-cols-10 grid-rows-[repeat(2,auto)] gap-4 text-[1em]">
       <Name />
 
       <Statement statement={statement} />

@@ -9,7 +9,7 @@ export default function ProfilePageExperienceSection({
   return (
     <section
       id="experience"
-      className="grid grid-cols-6 gap-2 sm:text-[1.15em]"
+      className="grid scroll-mt-4 grid-cols-6 gap-2 sm:text-[1.15em]"
     >
       <h1 className="col-span-full mb-4 text-center text-[1.5em] font-medium underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 dark:decoration-neutral-700">
         Experience
