@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/client";
-import { projectBySlugQuery } from "@/sanity/lib/query";
+import { projectQuery } from "@/sanity/lib/query";
 import Header from "@/app/projects/[name]/header";
 import Media from "@/app/projects/[name]/media";
 import About from "@/app/projects/[name]/about";
@@ -14,9 +14,14 @@ export default async function ProjectDetail({
   params,
 }: ProjectDetailPageProps) {
   const projectData = await sanityFetch<Project>({
-    query: projectBySlugQuery,
-    qParams: { slug: params.name },
+    query: projectQuery,
+    qParams: {
+      slug: params.name,
+      minProf: 0,
+    },
   });
+
+  console.log(projectData);
 
   return (
     <div className="grid size-full select-none grid-cols-1 justify-center gap-4 px-4 !pb-[5em] font-sans sm:gap-10 md:px-8 lg:px-16 xl:px-24">

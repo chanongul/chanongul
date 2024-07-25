@@ -77,7 +77,7 @@ export const projectsQuery = groq`*[_type=="project"]|order(to desc){
   "preview":preview.asset->url
 }`;
 
-export const projectBySlugQuery = groq`*[_type=="project"&&slug.current==$slug]|order(to asc){
+export const projectQuery = groq`*[_type=="project"&&slug.current==$slug]|order(to asc){
     figma,
     youtube,
     "images":images[].asset->url,
@@ -100,8 +100,10 @@ export const projectBySlugQuery = groq`*[_type=="project"&&slug.current==$slug]|
       url
     },
     "stack":stack[]->{
-      "logo":logo.asset->url,
-      prof,
-      name
-    }[prof>$minProf]
+      ...select(prof>$minProf=>{
+        "logo":logo.asset->url,
+        prof,
+        name
+      })
+    }
   }[0]`;
