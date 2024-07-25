@@ -31,7 +31,7 @@ export default function ResumeLink({ resume }: ResumeProps) {
       }}
       className="group relative hidden size-full items-center justify-between rounded-lg border border-neutral-200 bg-white p-[10%] text-[0.75em] text-black transition-colors duration-300 md:rounded-xl md:text-[1em] 2xl:!text-[1.25em] landscape:flex landscape:rounded-xl landscape:text-[0.6em] lg:landscape:text-[0.85em] xl:landscape:text-[1em] dark:border-neutral-800 dark:bg-charcoal dark:text-white"
     >
-      <div className="flex size-full flex-col items-center justify-between transition-transform duration-300 touch:group-active:scale-105 no-touch:group-hover:scale-105">
+      <div className="flex size-full flex-col items-center justify-between">
         <p className="font-sans">View</p>
         <BsFileEarmarkPerson className="size-[1.5em] lg:size-[3em]" />
         <p className="font-sans">Resumé</p>

@@ -23,7 +23,7 @@ const SkillsLink = forwardRef<HTMLDivElement, HomePageSkillsLinkProps>(
 
     return (
       <Link
-        href={`/profile#${type.toLowerCase().replace(/\s+/g, "-")}`}
+        href="/profile#skills"
         className="group inline-flex h-full items-center gap-2 px-3 pt-2 text-[0.65em] sm:px-6 sm:pt-4 md:text-[0.85em] landscape:px-3 landscape:pt-2 landscape:text-[0.5em] lg:landscape:px-6 lg:landscape:pt-2 lg:landscape:text-[0.85em]"
         style={{ width: containerWidth }}
       >

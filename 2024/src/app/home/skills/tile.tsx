@@ -8,7 +8,6 @@ export default function SkillsTile({
   type,
   skills,
   index,
-  typesCount,
 }: HomePageSkillsTileProps) {
   const containerRef = useRef<HTMLElement>(null);
 

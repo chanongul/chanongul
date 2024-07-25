@@ -13,7 +13,6 @@ export default function HomePage({
   educationData,
   experienceData,
   skillsData,
-  skillTypesData,
   projectsData,
 }: HomePageProps) {
   return (
@@ -24,7 +23,7 @@ export default function HomePage({
 
       <Statement statement={profileData.description} />
 
-      <Skills skills={skillsData} skillTypes={skillTypesData} />
+      <Skills skills={skillsData} />
 
       <Experience education={educationData} experience={experienceData} />
 

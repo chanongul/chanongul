@@ -6,8 +6,7 @@ import {
   experienceQuery,
   profileQuery,
   projectsQuery,
-  skillsQuery,
-  skillTypesQuery,
+  skillsByCategoryQuery,
 } from "@/sanity/lib/query";
 
 export const runtime = "edge";
@@ -25,11 +24,9 @@ export default async function Home() {
   const experienceData = await sanityFetch<Experience[]>({
     query: experienceQuery,
   });
-  const skillsData = await sanityFetch<Skill[]>({
-    query: skillsQuery,
-  });
-  const skillTypesData = await sanityFetch<SkillType[]>({
-    query: skillTypesQuery,
+  const skillsData = await sanityFetch<SkillsByCategory[]>({
+    query: skillsByCategoryQuery,
+    qParams: { minProf: 0 },
   });
   const projectsData = await sanityFetch<Project[]>({
     query: projectsQuery,
@@ -42,7 +39,6 @@ export default async function Home() {
       educationData={educationData}
       experienceData={experienceData}
       skillsData={skillsData}
-      skillTypesData={skillTypesData}
       projectsData={projectsData}
     />
   );
