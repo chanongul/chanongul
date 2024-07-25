@@ -26,7 +26,7 @@ export default function SkillCard({ logo, name, prof }: Skill) {
         >
           <p className="text-[0.85em] leading-tight">{name}</p>
           <p className="text-[0.75em] leading-tight">
-            {isNaN(+prof) ? prof : `(${prof}/10)`}
+            {isNaN(+prof) ? `(${prof})` : `(${prof}/10)`}
           </p>
         </div>
       </div>

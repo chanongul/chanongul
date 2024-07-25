@@ -25,7 +25,7 @@ export default function SkillCard({ logo, name, prof }: Skill) {
           <div className="absolute bottom-full left-1/2 z-10 hidden w-max -translate-x-1/2 flex-col items-center justify-center rounded-lg bg-neutral-600/50 px-2 py-1 font-mono !text-white backdrop-blur-md touch:group-active/self:flex no-touch:group-hover/self:flex">
             <p className="text-[0.85em] leading-tight">{name}</p>
             <p className="text-[0.75em] leading-tight">
-              {isNaN(+prof) ? prof : `(${prof}/10)`}
+              {isNaN(+prof) ? `(${prof})` : `(${prof}/10)`}
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function SkillCard({ logo, name, prof }: Skill) {
           <p>{name}</p>
           <div className="absolute bottom-full left-1/2 z-10 hidden w-max -translate-x-1/2 flex-col items-center justify-center rounded-lg bg-neutral-600/50 px-2 py-1 font-mono !text-white backdrop-blur-md touch:group-active/self:flex no-touch:group-hover/self:flex">
             <p className="text-[0.75em] leading-tight">
-              {isNaN(+prof) ? prof : `(${prof}/10)`}
+              {isNaN(+prof) ? `(${prof})` : `(${prof}/10)`}
             </p>
           </div>
         </div>
