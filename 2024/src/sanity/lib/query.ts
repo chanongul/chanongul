@@ -58,7 +58,7 @@ export const skillsByCategoryQuery = groq`*[_type=="skillCategory"]|order(name a
 
 export const skillsByTypeQuery = groq`*[_type=="skillType"&&count(*[_type=="skillSubtype"&&references(^._id)&&count(*[_type=="skill"&&references(^._id)&&defined(prof)])>0])>0]|order(name asc){
   name,
-  "subtypes":*[_type=="skillSubtype"&&references(^._id)&&count(*[_type == "skill"&&references(^._id)&&defined(prof)])>0]{
+  "subtypes":*[_type=="skillSubtype"&&references(^._id)&&count(*[_type == "skill"&&references(^._id)&&defined(prof)])>0]|order(name asc){
     name,
     "skills":*[_type=="skill"&&references(^._id)&&defined(prof)]|order(name asc){
       "logo":logo.asset->url,
