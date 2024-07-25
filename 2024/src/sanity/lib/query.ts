@@ -8,7 +8,7 @@ export const profileQuery = groq`*[_type=="profile"]{
   "description":desc
 }[0]`;
 
-export const contactsQuery = groq`*[_type=="contact"] | order(name asc){
+export const contactsQuery = groq`*[_type=="contact"]|order(name asc){
   "logo":logo.asset->url,
   name,
   link,
@@ -16,7 +16,7 @@ export const contactsQuery = groq`*[_type=="contact"] | order(name asc){
   main
 }`;
 
-export const educationQuery = groq`*[_type=="education"] | order(from desc){
+export const educationQuery = groq`*[_type=="education"]|order(from desc){
   "logo":logo.asset->url,
   name,
   level,
@@ -28,7 +28,7 @@ export const educationQuery = groq`*[_type=="education"] | order(from desc){
   temp
 }`;
 
-export const experienceQuery = groq`*[_type=="experience"] | order(from desc){
+export const experienceQuery = groq`*[_type=="experience"]|order(from desc){
   "logo":logo.asset->url,
   name,
   title,
@@ -47,20 +47,28 @@ export const experienceQuery = groq`*[_type=="experience"] | order(from desc){
   }
 }`;
 
-export const skillsQuery = groq`*[_type=="skill"] | order(name asc){
-  "logo":logo.asset->url,
+export const skillsByCategoryQuery = groq`*[_type=="skillCategory"]|order(name asc){
   name,
-  prof,
-  "type":type->name,
-  "subtype":subtype->name
+  "skills":*[_type=="skill"&&references(^._id)&&prof>$minProf]|order(name asc){
+    "logo":logo.asset->url,
+    name,
+    prof
+  }
 }`;
 
-export const skillTypesQuery = groq`*[_type=="skillType"] | order(name asc){
+export const skillsByTypeQuery = groq`*[_type=="skillType"&&count(*[_type=="skillSubtype"&&references(^._id)&&count(*[_type=="skill"&&references(^._id)&&prof>$minProf])>0])>0]|order(name asc){
   name,
-  "subtypes": *[_type=="skillSubtype" && references(^._id)].name
+  "subtypes":*[_type=="skillSubtype"&&references(^._id)]{
+    name,
+    "skills":*[_type=="skill"&&references(^._id)&&prof>$minProf]|order(name asc){
+      "logo":logo.asset->url,
+      name,
+      prof
+    }
+  }
 }`;
 
-export const projectsQuery = groq`*[_type=="project"] | order(to desc){
+export const projectsQuery = groq`*[_type=="project"]|order(to desc){
   from,
   to,
   name,
@@ -69,7 +77,7 @@ export const projectsQuery = groq`*[_type=="project"] | order(to desc){
   "preview":preview.asset->url
 }`;
 
-export const projectBySlugQuery = groq`*[_type=="project" && slug.current == $slug] | order(to asc){
+export const projectBySlugQuery = groq`*[_type=="project"&&slug.current==$slug]|order(to asc){
     figma,
     youtube,
     "images":images[].asset->url,
@@ -95,5 +103,5 @@ export const projectBySlugQuery = groq`*[_type=="project" && slug.current == $sl
       "logo":logo.asset->url,
       prof,
       name
-    }
+    }[prof>$minProf]
   }[0]`;

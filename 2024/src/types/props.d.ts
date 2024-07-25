@@ -23,8 +23,7 @@ declare global {
     contactData: Contact[];
     educationData: Education[];
     experienceData: Experience[];
-    skillsData: Skill[];
-    skillTypesData: SkillType[];
+    skillsData: SkillsByCategory[];
     projectsData: Project[];
   };
 
@@ -71,8 +70,6 @@ declare global {
     logo: string;
     name: string;
     prof: number;
-    type: string;
-    subtype: string;
   };
 
   type SkillType = {
@@ -81,11 +78,16 @@ declare global {
   };
 
   type SkillsByType = {
-    [type: string]:
-      | {
-          [subtype: string]: Skill[];
-        }[]
-      | Skill[];
+    name: string;
+    subtypes: {
+      name: string;
+      skills: Skill[];
+    }[];
+  };
+
+  type SkillsByCategory = {
+    name: string;
+    skills: Skill[];
   };
 
   type URLWithName = {
@@ -163,8 +165,7 @@ declare global {
   };
 
   type HomePageSkillsSectionProps = {
-    skills: Skill[];
-    skillTypes: SkillType[];
+    skills: SkillsByCategory[];
   };
 
   type HomePageSkillsTileProps = {
@@ -251,8 +252,7 @@ declare global {
   type ProfilePagePhotoProps = Pick<Profile, "photo">;
 
   type ProfilePageSkillsSectionProps = {
-    skills: Skill[];
-    skillTypes: SkillType[];
+    skills: SkillsByType[];
   };
 
   type ProfilePageSkillWithNoSubtypesProps = {
@@ -260,10 +260,11 @@ declare global {
     skills: Skill[];
   };
 
-  type ProfilePageSkillWithSubtypesProps = {
-    type: string;
+  type ProfilePageSkillsBySubtypeTileProps = {
+    name: string;
     subtypes: {
-      [subtype: string]: Skill[];
+      name: string;
+      skills: Skill[];
     }[];
   };
 

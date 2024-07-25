@@ -7,6 +7,12 @@ export default defineType({
   preview: {
     select: {
       title: "name",
+      type: "type.name",
+    },
+    prepare(value) {
+      return {
+        title: `${value.title} (${value.type})`,
+      };
     },
   },
   fields: [

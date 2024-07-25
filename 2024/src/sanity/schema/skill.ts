@@ -1,5 +1,5 @@
 import NumberSelector from "./components/NumberSelector";
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: "skill",
@@ -18,27 +18,50 @@ export default defineType({
       type: "image",
     }),
     defineField({
-      name: "type",
-      title: "Type",
-      type: "reference",
-      to: { type: "skillType" },
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "skillCategory" },
+          options: {
+            filter: ({ document }) => {
+              const selected = (document.categories as { _ref: string }[])
+                .map((s) => s._ref)
+                .filter(Boolean);
+              return {
+                filter: "!(_id in $selected)",
+                params: { selected },
+              };
+            },
+          },
+        }),
+      ],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "subtype",
-      title: "Subtype",
-      type: "reference",
-      to: { type: "skillSubtype" },
-      hidden: ({ document }) => !document?.type,
-      options: {
-        filter: ({ document }) => {
-          const selectedType = (document.type as { _ref: string })._ref;
-          return {
-            filter: '_type == "skillSubtype" && references($selectedType)',
-            params: { selectedType },
-          };
-        },
-      },
+      name: "types",
+      title: "Types",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "skillSubtype" },
+          options: {
+            filter: ({ document }) => {
+              const selected = (document.types as { _ref: string }[])
+                .map((s) => s._ref)
+                .filter(Boolean);
+              return {
+                filter: "!(_id in $selected)",
+                params: { selected },
+              };
+            },
+          },
+        }),
+      ],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "name",

@@ -2,14 +2,15 @@ import { type SchemaTypeDefinition } from "sanity";
 import profile from "./profile";
 import education from "./education";
 import experience from "./experience";
-import skillType from "./skill-type";
-import skillSubtype from "./skill-subtype";
 import skill from "./skill";
+import skillCategory from "./skill-category";
+import skillSubtype from "./skill-subtype";
+import skillType from "./skill-type";
 import project from "./project";
-import contact from "./contact";
 import projLink from "./proj-link";
 import projSrc from "./proj-src";
 import projType from "./proj-type";
+import contact from "./contact";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,6 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     education,
     experience,
     skill,
+    skillCategory,
     skillType,
     skillSubtype,
     project,
