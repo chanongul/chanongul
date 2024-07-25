@@ -17,12 +17,12 @@ export default function ProfilePageSkillsBySubtypeTile({
             key={i}
             className="group/group flex flex-col gap-2 py-2 transition-[border-color] duration-300"
           >
-            <p className="text-center text-[1em] font-medium underline decoration-neutral-300 underline-offset-4 transition-[text-decoration-color] duration-300 dark:decoration-neutral-700">
+            <p className="text-center text-[0.85em] font-medium underline decoration-neutral-300 underline-offset-4 opacity-60 transition-[text-decoration-color] duration-300 dark:decoration-neutral-700">
               {subtype.name}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
               {subtype.skills.map((skill, j) => (
-                <Card key={j} {...skill} type={name} />
+                <Card key={j} {...skill} />
               ))}
             </div>
           </div>

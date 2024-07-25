@@ -39,13 +39,13 @@ const SkillsCarousel = forwardRef<HTMLDivElement, HomePageSkillsCarouselProps>(
         >
           {skills.map((skill, i) => (
             <div key={i}>
-              <Card logo={skill.logo} name={skill.name} prof={skill.prof} />
+              <Card {...skill} />
             </div>
           ))}
           {isOverflowing &&
             skills.map((skill, i) => (
               <div key={i + skills.length}>
-                <Card logo={skill.logo} name={skill.name} prof={skill.prof} />
+                <Card {...skill} />
               </div>
             ))}
         </div>

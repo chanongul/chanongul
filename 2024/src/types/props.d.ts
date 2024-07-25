@@ -69,7 +69,7 @@ declare global {
   type Skill = {
     logo: string;
     name: string;
-    prof: number;
+    prof: string;
   };
 
   type SkillType = {
@@ -183,13 +183,6 @@ declare global {
   type HomePageSkillsCarouselProps = {
     containerRef: ForwardedRef<HTMLDivElement>;
     skills: Skill[];
-  };
-
-  type SkillCardProps = {
-    logo: string;
-    name: string;
-    prof: number;
-    type?: string;
   };
 
   type HomePageProjectsSectionProps = {

@@ -49,18 +49,18 @@ export const experienceQuery = groq`*[_type=="experience"]|order(from desc){
 
 export const skillsByCategoryQuery = groq`*[_type=="skillCategory"]|order(name asc){
   name,
-  "skills":*[_type=="skill"&&references(^._id)&&prof>$minProf]|order(name asc){
+  "skills":*[_type=="skill"&&references(^._id)&&defined(prof)]|order(name asc){
     "logo":logo.asset->url,
     name,
     prof
   }
 }`;
 
-export const skillsByTypeQuery = groq`*[_type=="skillType"&&count(*[_type=="skillSubtype"&&references(^._id)&&count(*[_type=="skill"&&references(^._id)&&prof>$minProf])>0])>0]|order(name asc){
+export const skillsByTypeQuery = groq`*[_type=="skillType"&&count(*[_type=="skillSubtype"&&references(^._id)&&count(*[_type=="skill"&&references(^._id)&&defined(prof)])>0])>0]|order(name asc){
   name,
-  "subtypes":*[_type=="skillSubtype"&&references(^._id)]{
+  "subtypes":*[_type=="skillSubtype"&&references(^._id)&&count(*[_type == "skill"&&references(^._id)&&defined(prof)])>0]{
     name,
-    "skills":*[_type=="skill"&&references(^._id)&&prof>$minProf]|order(name asc){
+    "skills":*[_type=="skill"&&references(^._id)&&defined(prof)]|order(name asc){
       "logo":logo.asset->url,
       name,
       prof
@@ -100,7 +100,7 @@ export const projectQuery = groq`*[_type=="project"&&slug.current==$slug]|order(
       url
     },
     "stack":stack[]->{
-      ...select(prof>$minProf=>{
+      ...select(defined(prof)=>{
         "logo":logo.asset->url,
         prof,
         name

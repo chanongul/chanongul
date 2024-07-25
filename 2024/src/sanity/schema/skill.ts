@@ -1,4 +1,3 @@
-import NumberSelector from "./components/NumberSelector";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
@@ -72,9 +71,18 @@ export default defineType({
     defineField({
       name: "prof",
       title: "Proficiency",
-      type: "number",
-      validation: (Rule) => Rule.required().integer().min(0).max(10),
-      components: { input: NumberSelector },
+      type: "string",
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (!value) return true;
+          if (!isNaN(value as any)) {
+            const num = parseFloat(value);
+            if (num < 0 || num > 10) {
+              return "Proficiency must be between 0 and 10";
+            }
+          }
+          return true;
+        }),
     }),
   ],
 });
