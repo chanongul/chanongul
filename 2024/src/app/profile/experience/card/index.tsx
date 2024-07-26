@@ -3,7 +3,7 @@ import Education from "@/app/profile/experience/card/education";
 import Experience from "@/app/profile/experience/card/experience";
 import { durationFormatter } from "@/app/utils/duration-formatter";
 
-export default function index({
+export default function Card({
   experience,
   index,
   length,
