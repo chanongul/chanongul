@@ -57,6 +57,7 @@ export default function ProjectDetailPageInfo({
                     key={i}
                     href={s.url}
                     className="rounded-full bg-neutral-300 px-3 py-1 text-[0.85em] font-light transition-transform duration-300 sm:text-[1em] touch:active:scale-105 no-touch:hover:scale-105 dark:bg-neutral-800"
+                    target="_blank"
                   >
                     {s.name}
                   </Link>
